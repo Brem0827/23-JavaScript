@@ -8,6 +8,7 @@
 ![JavaScript](https://img.shields.io/badge/Javascript-F7DF1E?style=flatsquarelogo=JavaScript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flatsquare&logo=HTML5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flatsquare&logo=CSS3&logoColor=white)
+<img src="https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=Windows&logoColor=white"/></a>&nbsp
 
 [![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=guswhd284)](https://www.acmicpc.net/user/guswhd284)
 
@@ -19,8 +20,61 @@
 
 # 3주차
 
-### 📖 자료형
+## 📖 자료형
+
+* typeof( ) 함수
+* 숫자형
+* 문자열
+* 특수기호 표시하기
+* 템플릿 리터럴
+* 논리형
+* truthy, falsy
+* null, undefined
+
+## 📖 객체
+
+* 객체 정의하기
+* 객체의 값에 접근하기
+* 배열
+
+## 📖 심벌
+
+* 심벌 만들기
+* 심벌에 설명 추가하기
+
+## 📖 JavaScript 자료형의 특징
+
+* 강력한 자료형 체크
+* 느슨한 자료형 체크
+* 자동 형 변환
+
+## 📖 직접 숫자형으로 변환하기
+
+* Number( ) 함수
+* parseInt( ) 함수
+* parseFloat( ) 함수
 
 # 2주차
+
+* 인라인 스크립트
+* 내부 스크립트
+* 인라인 스크립트와 내부 스크립트 소스의 단점
+
+## 📖 팝업창 표시하기
+
+* alert( ) 함수
+* confirm( ) 함수
+* prompt( ) 함수
+
+* console.log( )
+* document.write( )
+
+## 📖 변수
+
+* 변수 선언하기
+* 변수에 값 할당하기
+* var와 변수 호이스팅
+* 재선언, 재할당
+
 
 # 1주차
