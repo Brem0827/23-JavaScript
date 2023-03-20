@@ -12,3 +12,15 @@
 [![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=guswhd284)](https://www.acmicpc.net/user/guswhd284)
 
 <!-- main 영역 -->
+
+1. [1주차](#1주차)
+2. [2주차](#2주차)
+3. [3주차](#3주차)
+
+# 3주차
+
+### 💗 자료형
+
+# 2주차
+
+# 1주차
