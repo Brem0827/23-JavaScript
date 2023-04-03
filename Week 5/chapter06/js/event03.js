@@ -1,9 +1,6 @@
-const body = document.body;
-const result = document.querySelector("#result");
+function changeBackground( ) {
+    document.body.style.backgroundColor = "green";
+}
 
-body.addEventListener("keydown", (e) => {
-    result.innerText = `
-    code : ${e.code},
-    key : ${e.key}
-    `;
-});
+const button = document.querySelector("button");
+button.onclick = changeBackground;
