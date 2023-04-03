@@ -131,6 +131,30 @@
   </tr>
 </table>
 
+## 📖 폼 이벤트
+
+* 로그인이나 검색, 게시판, 설문 조사 처럼 사용자가 데이터를 입력하는 모든 요소를 가리킵니다.
+
+<table>
+  <th>이벤트</th><th>이벤트가 발생하는 순간</th>
+  <tr>
+    <td>blur</td><td>폼 요소에 포커스를 잃었을 때</td>
+  </tr>
+  <tr>
+    <td>change</td><td>목록이나 체크 상태 등이 변경되었을 때<br>
+    (<input>, <select>, <textarea>,<button> 태그에서 사용)</td>
+  </tr>
+  <tr>
+    <td>focus</td><td>키에서 손을 뗄 때</td>
+  </tr>
+  <tr>
+    <td>reset</td><td>키에서 손을 뗄 때</td>
+  </tr>
+  <tr>
+    <td>submit</td><td>키에서 손을 뗄 때</td>
+  </tr>
+</table>
+
 # 4주차
 
 ## 📖 함수
