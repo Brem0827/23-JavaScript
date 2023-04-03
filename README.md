@@ -141,17 +141,16 @@
     <td>blur</td><td>폼 요소에 포커스를 잃었을 때</td>
   </tr>
   <tr>
-    <td>change</td><td>목록이나 체크 상태 등이 변경되었을 때<br>
-    (<input>, <select>, <textarea>,<button> 태그에서 사용)</td>
+    <td>change</td><td>목록이나 체크 상태 등이 변경되었을 때</td>
   </tr>
   <tr>
-    <td>focus</td><td>키에서 손을 뗄 때</td>
+    <td>focus</td><td>폼 요소에서 포커스를 놓았을 때</td>
   </tr>
   <tr>
-    <td>reset</td><td>키에서 손을 뗄 때</td>
+    <td>reset</td><td>폼이 리셋되었을 때</td>
   </tr>
   <tr>
-    <td>submit</td><td>키에서 손을 뗄 때</td>
+    <td>submit</td><td>[submit] 버튼을 클릭했을 때</td>
   </tr>
 </table>
 
