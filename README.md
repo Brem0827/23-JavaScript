@@ -117,6 +117,62 @@
 
 </details>
 
+<details><summary>📖 스코프 </summary>
+
+* 스코프 란, 선언한 변수의 적용 범위를 가리킵니다.
+* 변수를 특정 영역에서만 사용할 수 있을 때 '지역 스코프를 가지고 있다.' 라고 말하고, 이런 변수를 지역변수 라고 합니다.
+* 전역 스코프는 프로그램의 시작 부분에서 변수를 선언하면 프로그램 전체에서 사용할 수 있는 스코프 입니다.
+
+</details>
+
+<details><summary>📖 익명 함수 </summary>
+
+* 함수 이름이 없는 함수
+
+</details>
+
+<details><summary>📖 즉시 실행 함수 </summary>
+
+* 필요할 때마다 여러 번 실행할 수 있어서 매우 편리함
+* 한 번만 실행하는 함수일 경우 함수를 정의하면서 동시에 실행할 수도 있는데, 이런 함수를 즉시 실행 함수 라고 합니다.
+
+</details>
+
+<details><summary>📖 화살표 함수 </summary>
+
+* 표현식을 사용해 함수를 정의할 경우에만 사용 가능
+* (매개변수) => {함수 내용}
+
+</details>
+
+<details><summary>📖 콜백 함수 </summary>
+
+* 다른 함수의 인수로 사용하는 함수를 가리키는 함수
+
+</details>
+
+<details><summary>📖 전개 구문 </summary>
+
+* 값을 펼쳐 주는 구문
+* console.log(...fruits)
+
+</details>
+
+<details><summary>📖 나머지 매개변수 </summary>
+
+* 전개 구문을 사용해서 매개변수를 만드는데, 이것을 나머지 매개변수 라고 합니다.
+
+</details>
+
+<details><summary>📖 타이머 함수 </summary>
+
+* 특정 시간이 되었을 때 함수를 실행하거나 특정 시간 동안 함수를 반복하기 위해 시간을 재는 함수
+* setInterval() 함수는 일정한 시간마다 함수를 반복해서 실행하는 함수
+* clearInterval() 함수는 setInterval() 함수로 시작한 타이머를 종료하는 함수
+* setTimeout() 함수는 지정한 시간이 지난 후에 콜백 함수를 실행합니다.
+
+</details>
+
 # 5주차
 
 ## 📖 클래스 스타일 추가하고 삭제하기
