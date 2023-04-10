@@ -173,6 +173,195 @@
 
 </details>
 
+<details><summary>📖 DOM </summary>
+
+* 자바스크립트 같은 프로그래밍 언어로 웹 문서에 접근하고 제어할 수 있도록 웹 문서를 체계적으로 정리하는 방법
+
+</details>
+
+<details><summary>📖 querySelector 함수 </summary>
+
+</details>
+
+<details><summary>📖 querySelectorAll 함수 </summary>
+
+</details>
+
+<details><summary>📖 웹 요소의 내용을 가져오고 수정하기 </summary>
+
+* innerText
+* innerHtml
+* textContent
+
+</details>
+
+<details><summary>📖 CSS 속성에 접근하고 수정하기 </summary>
+
+</details>
+
+<details><summary>📖 classList 프로퍼티 살펴보기 </summary>
+
+* innerText
+* innerHtml
+* textContent
+
+</details>
+
+<details><summary>📖 클래스 스타일을 추가하고 삭제하기 </summary>
+
+* add() 함수
+* contains() 함수
+* 클래스 스타일 토글하기
+
+</details>
+
+<details><summary>📖 폼 요소에 접근하고 값을 가져오는 방법 </summary>
+
+* id나 class 속성값을 사용하여 폼 요소에 접근
+* 텍스트 필드에 입력한 값 가져오기
+* name 속성값을 사용해 폼 요소에 접근하기
+* 폼 배열을 사용해 폼 요소에 접근하기
+
+</details>
+
+<details><summary>📖 선택 목록과 항목에 접근하기 </summary>
+
+* 선택 목록에 접근하기
+* 알림 창에 선택한 항목 표시하기
+
+</details>
+
+<details><summary>📖 라디오 버튼과 체크 박스에 접근하기 </summary>
+
+* 라디오 버튼에 접근하기
+* 체크 박스에 접근하기
+* checked 속성을 사용해 선택한 항목에 접근하기
+
+</details>
+
+<details><summary>📖 이벤트란? </summary>
+
+* 웹 브라우저나 사용자가 실행하는 어떤 동작을 말합니다.
+* 예를 들어 웹 문서에서 키보드의 키를 누르는 것도 이벤트이고, 웹 브라우저 창에 웹 페이지를 불러오는 것도 이벤트 입니다.
+* 이벤트는 웹 페이지를 읽어 오거나 링크를 클릭하는 것처럼 웹 문서 영역에서 이루어지는 동작만을 말합니다.
+
+</details>
+
+<details><summary>📖 문서 로딩 이벤트 </summary>
+
+* 문서 로딩 이벤트는 서버에서 웹 문서를 가져오거나 위아래로 스크롤하는 등 웹문서를 웹 브라우저 창에 보여주는 것과 관련된 이벤트 입니다.
+
+<table>
+  <th>이벤트</th><th>이벤트가 발생하는 순간</th>
+  <tr>
+    <td>abort</td><td>웹 문서가 완전히 로딩되기 이전에 불러오기를 멈추었을 때</td>
+  </tr>
+  <tr>
+    <td>error</td><td>문서가 정확히 로딩되지 않았을 때</td>
+  </tr>
+  <tr>
+    <td>load</td><td>문서 로딩이 끝났을 때</td>
+  </tr>
+  <tr>
+    <td>resize</td><td>문서 화면의 크기가 바뀌었을 때</td>
+  </tr>
+  <tr>
+    <td>scroll</td><td>문서 화면이 스크롤 되었을 때</td>
+  </tr>
+  <tr>
+    <td>unload</td><td>문서를 벗어날 때</td>
+  </tr>
+</table>
+
+</details>
+
+<details><summary>📖 마우스 이벤트 </summary>
+
+* 마우스 이벤트는 마우스에서 버튼이나 휠 버튼을 조작할 때 발생하는 이벤트입니다.
+
+<table>
+  <th>이벤트</th><th>이벤트가 발생하는 순간</th>
+  <tr>
+    <td>click</td><td>사용자가 HTML 요소를 클릭했을 때</td>
+  </tr>
+  <tr>
+    <td>dbclick</td><td>사용자가 HTML 요소를 더블 클릭했을 때</td>
+  </tr>
+  <tr>
+    <td>mousedown</td><td>사용자가 요소에서 마우스 버튼을 눌렀을 때</td>
+  </tr>
+  <tr>
+    <td>mousemove</td><td>사용자가 요소에서 마우스 포인터를 움직일 때</td>
+  </tr>
+  <tr>
+    <td>mouseover</td><td>마우스 포인터를 요소 위로 옮길 때</td>
+  </tr>
+  <tr>
+    <td>mouseout</td><td>마우스 포인터가 요소를 벗어날 때</td>
+  </tr>
+  <tr>
+    <td>mouseup</td><td>요소 위에 올려놓은 마우스 버튼에서 손을 뗄 때</td>
+  </tr>
+</table>
+
+</details>
+
+<details><summary>📖 키보드 이벤트 </summary>
+
+* 키보드 이벤트는 키보드에서 특정 키를 조작할 때 발생하는 이벤트 입니다.
+
+<table>
+  <th>이벤트</th><th>이벤트가 발생하는 순간</th>
+  <tr>
+    <td>keydown</td><td>키를 누르는 동안</td>
+  </tr>
+  <tr>
+    <td>keypress</td><td>키를 눌렀을 때</td>
+  </tr>
+  <tr>
+    <td>keyup</td><td>키에서 손을 뗄 때</td>
+  </tr>
+</table>
+
+</details>
+
+<details><summary>📖 키보드 이벤트 </summary>
+
+* 키보드 이벤트는 키보드에서 특정 키를 조작할 때 발생하는 이벤트 입니다.
+
+<table>
+  <th>이벤트</th><th>이벤트가 발생하는 순간</th>
+  <tr>
+    <td>keydown</td><td>키를 누르는 동안</td>
+  </tr>
+  <tr>
+    <td>keypress</td><td>키를 눌렀을 때</td>
+  </tr>
+  <tr>
+    <td>keyup</td><td>키에서 손을 뗄 때</td>
+  </tr>
+</table>
+
+</details>
+
+<details><summary>📖 HTML 태그에 함수 연결하기 </summary>
+
+* HTML 태그에 이벤트 처리기를 연결하기 위한 속성을 추가하는데, 속성 이름은 'on이벤트명' 으로 표현하고 그 뒤에 함수를 연결하는 것 입니다.
+
+</details>
+
+<details><summary>📖 웹 요소에 함수 연결하기 </summary>
+
+* 스크립트 소스를 변경해도 HTML 마크업에는 영향을 주지 않게 하려면 이벤트 처리기도 스크립트 소스에서 처리하는 것이 좋습니다.
+
+</details>
+
+<details><summary>📖 이벤트 리스너로 이벤트 처리하기 </summary>
+
+* 이벤트 리스너는 모든 DOM요소에서도 사용할 수 있고, 모든 함수에서도 실행 할 수 있습니다.
+
+</details>
+
 # 5주차
 
 ## 📖 클래스 스타일 추가하고 삭제하기
