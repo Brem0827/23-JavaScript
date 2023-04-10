@@ -362,6 +362,79 @@
 
 </details>
 
+<details><summary>📖 event 객체의 프로퍼티와 메서드 </summary>
+
+* 웹 문서에 이벤트가 발생하면 자동으로 이벤트와 관련된 객체가 만들어 집니다.
+
+<table>
+  <th>프로퍼티</th><th>기능</th>
+  <tr>
+    <td>altKey</td><td>이벤트가 발생했을 때 [Alt]를 누르고 있었는지의 여부를 확인하고 Boolean값을 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>button</td><td>마우스 키값을 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>charCode</td><td>keypress 이벤트가 발생했을 때 어떤 키가 눌렸는지 유니코드 값으로 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>clientX</td><td>이벤트가 발생한 가로 위치를 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>clientY</td><td>이벤트가 발생한 세로 위치를 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>ctrlKey</td><td>이벤트가 발생했을 때 [Ctrl]를 누르고 있었는지의 여부를 확인하고 Boolean값을 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>pageX</td><td>현재 문서를 기준으로 이벤트가 발생한 가로 위치를 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>pageY</td><td>현재 문서를 기준으로 이벤트가 발생한 세로 위치를 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>screenX</td><td>현재 화면을 기준으로 이벤트가 발생한 가로 위치를 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>screenY</td><td>현재 화면을 기준으로 이벤트가 발생한 세로 위치를 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>shiftKey</td><td>이벤트가 발생했을 때 [Shift]를 누르고 있었는지의 여부를 확인하고 Boolean값을 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>target</td><td>이벤트가 발생한 대상을 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>tineStamp</td><td>이벤트가 발생한 시간을 밀리초 단위로 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>type</td><td>발생한 이벤트 이름을 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>which</td><td>키보드와 관련된 이벤트가 발생했을 때 키의 유니코드 값을 반환합니다.</td>
+  </tr>
+</table>
+
+<table>
+  <th>메서드</th><th>기능</th>
+  <tr>
+    <td>preventDefault</td><td>(취소 할 수 있을 경우) 기본 동작을 취소합니다.</td>
+  </tr>
+</table>
+</details>
+
+<details><summary>📖 이벤트 버블링 </summary>
+
+* 특정 요소에서 이벤트가 발생했을 때 그 이벤트가 해당 요소뿐만 아니라 그 요소의 부모요소, 부모요소의 부모요소에도 똑같이 발생한 것으로 간주하는 것 입니다.
+
+</details>
+
+<details><summary>📖 이벤트 캡처링 </summary>
+
+* 웹 요소에서 이벤트가 발생하면 일단 최상위 요소에서 시작해서 이벤트가 발생한 요소까지 차례대로 이벤트가 전파되는 방식 입니다.
+
+</details>
+
 # 5주차
 
 ## 📖 클래스 스타일 추가하고 삭제하기
