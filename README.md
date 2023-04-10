@@ -23,6 +23,99 @@
 3. [3주차](#3주차)
 4. [4주차](#4주차)
 5. [5주차](#5주차)
+6. [6주차](#6주차)
+
+# 6주차
+
+## 📖 chapter 03
+
+* 연산자(산술 연산자 & 연결 연산자)
+* 조건문(if)
+* 반복문
+
+<details><summary>📖 산술 연산자 </summary>
+
+* 수학적인 계산을 위해 사용하는 연산자
+* +, -, *, /, %, ++, --
+</details>
+
+<details><summary>📖 할당 연산자 </summary>
+
+* 연산의 오른쪽의 실행 결과를 연산자의 왼쪽에 할당하는 연산자
+* =, +=, -=, *=, /=, %=
+</details>
+
+<details><summary>📖 비교 연산자 </summary>
+
+* 2개의 값을 비교해서 참이나 거짓으로 결괏값을 반환하는 연산자
+* ==, ===, !=, !==, <, <=, >, >=
+</details>
+
+<details><summary>📖 논리 연산자 </summary>
+
+* 참과 거짓을 피연산자로 하는 연산자
+* !, &&, ||
+</details>
+
+<details><summary>📖 IF문 </summary>
+
+* if 다음에 소괄호를 사용하여 조건을 표기, 그리고 조건을 체크한 후 결과값이 true이면 if문에 있는 명령들을, false이면 if문에 있는 명령은 건너뛰고 그 다음 명령을 실행합니다.
+
+* 조건을 체크한 후 true일 때 처리할 명령과 false일 때 처리할 명령이 따로 있다면 if문과 else문을 사용합니다.
+</details>
+
+<details><summary>📖 조건 연산자 </summary>
+
+* 조건이 복잡하지 않고 true와 false가 명확할 경우 if문을 사용하지 않고 조건 연산만으로 조건을 체크할 수도 있습니다.
+
+* (조건) ? true일 때 실행할 명령 : false일 때 실행할 명령
+
+</details>
+
+<details><summary>📖 switch 문 </summary>
+
+* 체크해야 할 조건값이 많을 경우에는 여러 개의 if...else 문을 사용하는 것 보다 switch문이 더 편리합니다. switch문 안에 있는 case 문에는 각 값에 따라 실행할 명령을 따로 구분 하면 됩니다.
+
+</details>
+
+<details><summary>📖 2개 이상 조건 체크 </summary>
+
+* OR 연산자 : 연산자 기호는 ||를 사용하고, 2개의 피연산자 중 하나라도 true가 있으면 결과값은 true가 됩니다.
+* AND 연산자 : 연산자 기호는 &&를 사용하고, 2개의 피연산자 중 false가 하나라도 있으면 결과값은 false가 됩니다.
+* NOT 연산자 : 연산자 기호는 !를 사용하고, 피연산자의 값과 정반대의 값을 갖습니다.
+
+</details>
+
+<details><summary>📖 for 문 </summary>
+
+* for ( 초깃값; 조건; 증가식) { ... }
+* 초깃값: 몇 번 반복할지 지정하기 위해 카운터 변수를 사용하는데, 이 항목에서 카운터 변수를 선언하고 초기화합니다. 초깃값은 0이나 1부터 시작합니다.
+* 조건 : 문장을 반복하기 위해 체크할 조건 부분입니다. 이 조건을 만족해야 for문 안에 있는 명령을 반복할 수 있습니다.
+* 증가식 : 문장을 실행한 후 카운터 변수를 증가시키는 부분입니다. 보통 카운터 값을 하나 더 증가시키는 용도로 사용합니다.
+
+</details>
+
+<details><summary>📖 break, continue문 </summary>
+
+* 반복문은 지정한 횟수 만큼 명령을 반복하지만, 조건에 따라 반복문을 중간에 끝낼 수 있습니다. 이때 break 문과 continue문을 사용합니다.
+* 종료 조건이 되기 전에 반복문을 빠져나와야 할 경우도 있는데, 이때 break문을 사용합니다.
+* continue문은 조건에 해당되는 값을 만났을 때 실행하던 반복문장을 건너뛰고 반복문의 맨 앞으로 되돌아가 다음 반복 과정으로 넘어가도록 합니다.
+
+</details>
+
+<details><summary>📖 함수 선언과 호출 </summary>
+
+<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#fafafa;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#a71d5d">function</span>&nbsp;calcSum(){</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#a71d5d">let</span>&nbsp;sum&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#0099cc">0</span>;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#a71d5d">for</span>(<span style="color:#a71d5d">let</span>&nbsp;i&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#0099cc">1</span>;&nbsp;i&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">&lt;</span><span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#0099cc">10</span>;&nbsp;i<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span><span style="color:#ff3399"></span><span style="color:#a71d5d">+</span>){</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span><span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;i;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#066de2">console</span>.log(`1부터&nbsp;10까지&nbsp;더하면&nbsp;${sum}입니다.`);</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">calcSum();</div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#e5e5e5text-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+
+</details>
+
+<details><summary>📖 매개변수와 인수, return문 </summary>
+
+* 함수를 선언할 때 외부에서 값을 받는 변수를 매개변수 라고 합니다.
+* 함수 선언이 끝났으면 이제 함수를 실행하라고 호출해야 합니다. 이렇게 매개변수가 있는 함수를 호출할 때 실제로 값을 넣어 넘겨주는 것을 인수 라고 합니다.
+* 함수의 실행 결과를 함수를 실행한 시점으로 넘겨주어야 하는데, 이것을 '함수값을 반환한다.(return)' 라고 합니다.
+
+</details>
 
 # 5주차
 
