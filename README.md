@@ -32,10 +32,70 @@
 
 <details><summary>📘 Chapter 04 </summary>
 
-  <details><summary>📖 산술 연산자 </summary>
+  <details><summary>📖 웹 요소에 접근 하기 </summary>
 
-  * 수학적인 계산을 위해 사용하는 연산자
-  * +, -, *, /, %, ++, --
+  * 선택자를 사용하여 웹 요소에 접근할 때는 querySelector() 함수나 querySelectorAll() 함수를 사용하는데, 이 함수들은 document 객체에 포함되어 있습니다.
+
+  * querySelector()는 1개의 요소만 가져옵니다.
+  * querySelector()함수에서 class 선택자나 타입 선택자를 사용하면 적용된 여러 개의 요소 중 첫 번째 요소만 가져옵니다.
+
+  * querySelectorAll()함수는 여러 개의 요소를 가져올 때 사용합니다.
+
+  </details>
+
+  <details><summary>📖 웹 요소의 내용을 가져오고 수정하기 </summary>
+
+  * innerText
+  * innerHtml
+  * textContent
+
+  </details>
+
+  <details><summary>📖 CSS 속성에 접근하고 수정하기 </summary>
+
+  * 자바스크립트를 사용하여 각 요소의 스타일 정보를 가져올 수도 있고, 원하는 스타일 속성을 바꿀 수도 있습니다.
+  * CSS 속성에 접근하려면 요소에 접근한 후 예약어 .style과 CSS 속성을 사용해야 합니다.
+
+  * 요소.style.속성명
+
+  </details>
+
+  <details><summary>📖 ClassList 프로퍼티 살펴보기 </summary>
+
+  * 요소에 적용한 클래스 스타일을 모두 모아 놓은 프로퍼티 입니다.
+
+  </details>
+
+  <details><summary>📖 클래스 스타일을 추가하고 삭제하기 </summary>
+
+  * 클래스 스타일을 추가할 때에는 add() 함수를, 삭제할 때는 remove() 함수를 사용해야 합니다.
+
+  * 요소.classList.add(클래스명)
+  * 요소.classList.remove(클래스명)
+
+  * contains() 함수는 클래스 리스트에 특정 클래스가 있는지 확인하는 함수 입니다.
+
+  </details>
+
+  <details><summary>📖 폼 요소에 접근하고 값을 가져오는 방법 </summary>
+
+  * id나 class 값을 사용하여 폼 요소에 접근할 수 있습니다.
+  * 자바스크립트에서 value 프로퍼티를 사용하면 폼 요소 중 텍스트 필드나 이메일 필드에서 사용자가 입력한 값을 가져올 수 있습니다.
+
+  * 폼 요소에 id나 class 속성이 없고 name 속성만 있으면 name 식별자를 사용해 폼 요소에 접근 할 수 있습니다.
+
+  * 위 3가지 모두 없다면 폼 배열을 사용할 수 있습니다.
+  * <form> 태그 안에 있는 요소에 접근할 때는 해당 폼 안에 있는 모든 요소를 가져오는 elements 속성을 사용합니다.
+
+  </details>
+
+  <details><summary>📖 선택 목록과 항목에 접근하기 </summary>
+
+  * 폼에는 텍스트 필드 뿐만 아니라 다양한 요소들이 있는데, 목록을 선텍목록 이라고 합니다.
+  * 선택 목록은 <option> 태그를 사용하여 여러 개의 항목을 한꺼번에 지정한 후 목록을 펼쳐서 원하는 항목을 선택할 수 있습니다.
+
+  * 선택 목록에 id값이 있으면 querySelector() 함수를 사용하여 선택 목록에 접근할 수 있습니다.
+
   </details>
 
 </details>
@@ -46,6 +106,164 @@
 
 * DOM은 웹 문서의 구조를 부모 노드와 형제 노드처럼 계층 구조로 표현할 수 있습니다.
 * DOM에는 단순히 태그에 해당하는 요소 노드 뿐만 아니라 여러 종류의 노드가 있습니다.
+
+* 모든 HTML 태그는 요소 노드가 됩니다.
+* HTML 태그에서 사용하는 텍스트 내용은 자식 노드인 텍스트 노드가 됩니다.
+* HTML 태그에 있는 속성은 모두 자식 노드인 속성노드가 됩니다.
+* 주석은 주석노드가 됩니다.
+
+</details>
+
+<details><summary>📖 노드리스트 </summary>
+
+* DOM에 접근할 때 querySelectorAll() 메서드를 사용하면 여러 개의 노드를 한꺼번에 가져올 수 있는데, 이렇게 가져온 다양한 노드 정보를 저장한 것을 노드 리스트 라고 합니다.
+* 노드 리스트는 배열과 비슷하게 생겼고 배열처럼 사용할 수 있지만 배열은 아닙니다.
+* 노드 리스트는 배열과 비슷하게 인덱스를 사용해 노드 리스트 에서 특정 위치의 노드에 접근 할 수있습니다.
+
+</details>
+
+<details><summary>📖 내용이 있는 텍스트 노드 추가 </summary>
+
+* 내용만 있는 새로운 텍스트 노드를 추가하는 것은 간단합니다.
+* 내용이 있는 텍스트 노드와 태그가 있는 요소 노드를 새로 만들어서 연결하고, 마지막에 웹 문서에서 원하는 위치에 추가하면 됩니다.
+
+</details>
+
+<details><summary>📖 요소 노드 만들기 </summary>
+
+* 요소 노드를 만들 때 createElement()메서드를 사용하는데, 소괄호 안의 요소에 해당하는 요소 노드를 만듭니다.
+
+* document.createElement(요소명)
+
+</details>
+
+<details><summary>📖 텍스트 노드 만들기 </summary>
+
+* 새로운 요소 노드를 만들었다면 내용을 담고 있는 텍스트 노드를 만들어서 요소 노드의 자식 노드로 연결해야 합니다.
+
+* document.createTextNode(요소명)
+
+</details>
+
+<details><summary>📖 자식 노드 연결하기 </summary>
+
+* 텍스트 노드를 요소 노드의 자식 노드로 추가할 때 사용하는 메서드 입니다.
+* 기존의 자식 노드가 있을 경우 자식 노드중 맨 끝에 추가됩니다.
+
+* document.createappendChild(자식 노드)
+
+</details>
+
+<details><summary>📖 속성값이 있는 노드 추가 </summary>
+
+* createElement() 메서드
+* createAttribute() 메서드
+* appendChild() 메서드
+
+</details>
+
+<details><summary>📖 기존 노드의 앞에 새 요소 추가하기 </summary>
+
+* insertBefore() 메서드를 사용하면 특정 요소를 기준으로 그 앞에 새로운 요소를 추가할 수 있습니다.
+
+* insertBefore(새 노드, 기준 노드)
+
+</details>
+
+<details><summary>📖 remove() 메서드 </summary>
+
+* 삭제하려는 요소에서 사용하는 메서드
+* r요소.remove()
+
+* removeChild() 메서드는 메서드를 사용하는 자신이 아닌 자식 노드를 삭제합니다.
+* 이 메서드를 사용하려면 먼저 부모 노드를 찾아야 하고 그 후에 자식 노드를 삭제해야 합니다.
+
+</details>
+
+<details><summary>📖 parentNode 프로퍼티 </summary>
+
+* parentNode는 현재 노드의 부모 노드에 접근해서 부모 노드의 요소 노드를 반환하는 프로퍼티입니다.
+
+* 노드.parentNode
+
+</details>
+
+<details><summary>📖 removeChild() 메서드 </summary>
+</details>
+
+<details><summary>📖 this를 사용시 주의할 점 </summary>
+
+* 이벤트 리스너에서 function() {...}에 this를 사용하면 this는 이벤트가 발생한 노드를 가리킵니다.
+* 즉, 목록의 항목 중 첫 번째 항목을 클릭하면 this에는 첫 번째 항목이 됩니다.
+* 하지만 화살표 함수에서 사용한 this는 window 객체를 가리킵니다.
+* window 객체는 DOM의 최상위 객체이므로 클릭한 대상을 this라는 예약어로 사용하려면 화살표 함수가 아닌 익명 함수 형식으로 지정해야 합니다.
+
+</details>
+
+<details><summary>📖 내장 객체 </summary>
+
+* 사용자가 손쉽게 가져와서 사용할 수 있도록 미리 만들어진 객체 입니다.
+
+</details>
+
+<details><summary>📖 window 객체 </summary>
+
+* window 객체에는 웹 브라우저 창과 관련된 여러 가지 프로퍼티와 메서드가 있습니다.
+
+<table>
+  <th>프로퍼티</th><th>기능</th>
+  <tr>
+    <td>document</td><td>웹 브라우저 창에 표시된 웹 문서에 접근할 수 있습니다.</td>
+  </tr>
+  <tr>
+    <td>frameElement</td><td>현재 창이 다른 요소 안에 포함되어 있으면 해당 요소를, 포함되어 있지 않으면 null을 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>innerHeight</td><td>내용 영역의 높이</td>
+  </tr>
+  <tr>
+    <td>innerWidth</td><td>내용 영역의 너비</td>
+  </tr>
+  <tr>
+    <td>localStorage</td><td>웹 브라우저 창에서 데이터를 저장하는 로컬 스토리지에 접근합니다.</td>
+  </tr>
+  <tr>
+    <td>location</td><td>window 객체의 위치/현재 URL을 표시합니다.</td>
+  </tr>
+    <tr>
+    <td>name</td><td>웹 브라우저 창의 이름을 가져오거나 수정합니다.</td>
+  </tr>
+    <tr>
+    <td>outerHeight</td><td>웹 브라우저 창의 바깥쪽 높이</td>
+  </tr>
+    <tr>
+    <td>outerWidth</td><td>웹 브라우저 창의 바깥쪽 너비</td>
+  </tr>
+    <tr>
+    <td>pageXOffser</td><td>스크롤했을 때 수평으로 이동하는 픽셀 수로, scrollX와 같습니다.</td>
+  </tr>
+    <tr>
+    <td>pageYOffset</td><td>스크롤했을 때 수평으로 이동하는 픽셀 수로, scrollY와 같습니다.</td>
+  </tr>
+    <tr>
+    <td>parent</td><td>현재 창이나 서브 프레임의 부모</td>
+  </tr>
+    <tr>
+    <td>screenX</td><td>웹 브라우저 창의 왼쪽 테두리가 모니터의 왼쪽 테두리에서부터 떨어져 있는 거리</td>
+  </tr>
+    <tr>
+    <td>screenY</td><td>웹 브라우저 창의 왼쪽 테두리가 모니터의 위쪽 테두리에서부터 떨어져 있는 거리</td>
+  </tr>
+    <tr>
+    <td>scrollX</td><td>스크롤했을 때 수평으로 이동하는 픽셀 수</td>
+  </tr>
+    <tr>
+    <td>scrollY</td><td>스크롤했을 때 수직으로 이동하는 픽셀 수</td>
+  </tr>
+    <tr>
+    <td>sessionStroge</td><td>웹 브라우저 창에서 데이터를 저장하는 세션 스토리지에 접근합니다.</td>
+  </tr>
+</table>
 
 </details>
 
