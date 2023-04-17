@@ -267,6 +267,167 @@
 
   </details>
 
+  <details><summary>📖 window 객체의 메서드 </summary>
+
+  * 대화창이나 웹 브라우저 창을 열 수도 있고, 웹 브라우저 창의 크기/위치를 알아내거나 지정할 수도 있습니다.
+
+  <table>
+    <th>메서드</th><th>기능</th>
+    <tr>
+      <td>alert()</td><td>알림 창을 표시합니다.</td>
+    </tr>
+    <tr>
+      <td>blur()</td><td>창에서 포커스를 제거합니다.</td>
+    </tr>
+    <tr>
+      <td>close()</td><td>현재 창을 닫습니다.</td>
+    </tr>
+    <tr>
+      <td>confirm()</td><td>[확인] 버튼과 [취소] 버튼이 있는 확인 창을 표시합니다.</td>
+    </tr>
+    <tr>
+      <td>focus()</td><td>현재 창에 포커스를 맞춥니다.</td>
+    </tr>
+    <tr>
+      <td>moveBy()</td><td>현재 창을 지정한 크기만큼 이동합니다.</td>
+    </tr>
+      <tr>
+      <td>moveTo()</td><td>현재 창을 지정한 좌표로 이동합니다.</td>
+    </tr>
+      <tr>
+      <td>open()</td><td>새로운 창을 엽니다.</td>
+    </tr>
+      <tr>
+      <td>postMessage()</td><td>다른 창으로 메세지를 전달합니다.</td>
+    </tr>
+      <tr>
+      <td>print()</td><td>현재 문서를 인쇄합니다.</td>
+    </tr>
+      <tr>
+      <td>prompt()</td><td>프롬프트 창에 입력한 텍스트를 반환합니다.</td>
+    </tr>
+      <tr>
+      <td>resizeBy()</td><td>지정한 크기만큼 현재 창의 크기를 조절합니다.</td>
+    </tr>
+      <tr>
+      <td>resizeTo()</td><td>웹 브라우저 창의 크기를 지정한 크기만큼 늘리거나 줄입니다.</td>
+    </tr>
+      <tr>
+      <td>scroll()</td><td>문서에서 특정 위치로 스크롤 합니다.</td>
+    </tr>
+      <tr>
+      <td>scrollBy()</td><td>지정한 크기만큼씩 스크롤 합니다.</td>
+    </tr>
+      <tr>
+      <td>scrollTo()</td><td>지정한 위치까지 한 번에 스크롤 합니다.</td>
+    </tr>
+      <tr>
+      <td>setCursor()</td><td>현재 창의 커서를 변경합니다.</td>
+    </tr>
+    <tr>
+      <td>showModalDialog()</td><td>모달 창을 엽니다.</td>
+    </tr>
+    <tr>
+      <td>sizeToContent()</td><td>내용에 맞게 창의 크기를 맞춥니다.</td>
+    </tr>
+    <tr>
+      <td>stop()</td><td>웹 문서 가져오기를 멈춥니다.</td>
+    </tr>
+  </table>
+  </details>
+
+  <details><summary>📖 window 객체의 내부 살펴보기 </summary>
+
+  * 최상위 객체이므로 가지고 있는 프로퍼티와 메서드가 매우 많습니다.
+
+  </details>
+
+  <details><summary>📖 팝업 창 만들기 </summary>
+
+  * window.open(경로, 창 이름, 창 옵션)
+
+  * 경로 - 팝업 창에 표시할 문서나 사이트의 경로/주소
+  * 창 이름 - 팝업 창에 이름을 지정하면 항상 지정한 창에 팝업 내용을 나타낼 수 있습니다. 만약 이름을 지정 하지 않으면 팝업 창이 계속 새로 나타납니다.
+  * 창 옵션 - 팝업 창은 기본적으로 화면의 왼쪽 맨 위에 나타나는데, left 속성과 top 속성을 사용해서 위치를 조절하거나 width 속성과 height 속성을 사용해서 크기를 지정할 수 있습니다.
+
+  * 팝업창 위치 조절하기 - open()
+  * 팝업 창 닫기 - close()
+
+  </details>
+
+  <details><summary>📖 screen 객체 </summary>
+
+  <table>
+    <th>프로퍼티</th><th>기능</th>
+    <tr>
+      <td>availHeight</td><td>UI영역을 제외한 내용 표시 영역의 높이</td>
+    </tr>
+    <tr>
+      <td>availWidth</td><td>UI 영역을 제외한 내용 표시 영역의 너비</td>
+    </tr>
+    <tr>
+      <td>colorDepth</td><td>화면에서 픽셀을 렌더링할 때 사용하는 색상 수</td>
+    </tr>
+    <tr>
+      <td>height</td><td>UI 영역을 포함한 화면의 높이</td>
+    </tr>
+    <tr>
+      <td>orientation</td><td>화면의 현재 방향</td>
+    </tr>
+    <tr>
+      <td>pixelDepth</td><td>화면에서 픽셀을 렌더링 할 때 사용하는 비트의 수</td>
+    </tr>
+    <tr>
+      <td>width</td><td>UI 영역을 포함한 화면의 너비</td>
+    </tr>
+  </table>
+
+  </details>
+
+  <details><summary>📖 history 객체 </summary>
+
+  </details>
+
+  <details><summary>📖 location 객체 </summary>
+
+  </details>
+
+  <details><summary>📖 웹 사이트에서 뒤로 이동 금지 하기 </summary>
+
+  </details>
+
+  <details><summary>📖 자바스크립트 객체의 인스턴스 만들기 </summary>
+
+  </details>
+
+  <details><summary>📖 현재 날짜를 기준으로 인스턴스 만들기 </summary>
+
+  </details>
+
+  <details><summary>📖 특정 날짜를 기준으로 인스턴스 만들기 </summary>
+
+  </details>
+
+  <details><summary>📖 자바스크립트의 날짜와 시간 입력 방식 </summary>
+
+  </details>
+
+  <details><summary>📖 Date 객체의 메서드 </summary>
+
+  </details>
+
+  <details><summary>📖 Math 객체의 프로퍼티와 메서드 </summary>
+
+  </details>
+
+  <details><summary>📖 소수점 이하 처리하기 </summary>
+
+  </details>
+
+  <details><summary>📖 무작위 수 추출하기 </summary>
+
+  </details>
+
 </details>
 
 # 6주차
