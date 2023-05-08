@@ -33,7 +33,7 @@
 
 <details><summary>📘 Chapter 09 </summary>
 
-  <details><summary>📖 자바스크립트에서 객체란? </summary>
+  <details><summary>📘 자바스크립트에서 객체란? </summary>
 
   * 관련된 정보와 동작을 함께 모아놓은 것
 
@@ -64,7 +64,7 @@
 
   </details>
 
-  <details><summary>📖 사용자 정의 객체 만들기 </summary>
+  <details><summary>📘 사용자 정의 객체 만들기 </summary>
 
   * 객체는 여러 개의 프로퍼티로 구성되어 있는데, 프로퍼티는 '키 : 값' 형태를 가지고 있습니다. 프로퍼티의 값이 함수일 경우 이것을 '메서드'라고 부릅니다.
 
@@ -117,7 +117,221 @@
 
   <details><summary>📖 빈 객체 작성 후 프로퍼티 추가 </summary>
 
-  * 객체는 여러 개의 프로퍼티로 구성되어 있는데, 프로퍼티는 '키 : 값' 형태를 가지고 있습니다. 프로퍼티의 값이 함수일 경우 이것을 '메서드'라고 부릅니다.
+  * 객체는 중간에 프로퍼티를 추가할 수 있으므로 처음에 빈 객체를 만든 후 필요할 떄마다 프로퍼티를 추가할 수 있습니다.
+
+  </details>
+
+  <details><summary>📖 프로퍼티 삭제 </summary>
+
+  * delete 명령 다음에 객체의 키를 지정하면 해당 키가 있는 프로퍼티를 삭제합니다.
+
+  ```js
+
+  delete book2.pages
+
+  ```
+
+  </details>
+
+  <details><summary>📖 객체 중첩하기 </summary>
+
+  * 객체 안에 또 다른 객체를 넣을 수 있습니다. 즉, 둘 이상의 객체가 중첩되는 것 이죠
+
+  ```js
+
+  let student = {
+    name : "Doremi",
+    score : {
+        history : 85,
+        science : 94,
+        average : function(){
+            return (this.history + this.science) / 2
+        }
+      }
+    }
+
+  student.score.history;
+  student.score.average();
+
+  ```
+
+  </details>
+
+  <details><summary>📘 객체의 메서드 정의하기 </summary>
+
+  ```js
+
+  let book3 = {
+    title = "점프 투 파이썬",
+    pages : 360,
+    buy : function(){
+      console.log("이 책을 구입했습니다.");
+    }
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 메서드와 this </summary>
+
+  * 메서드에 따라서는 객체 안에 있는 프로퍼티값을 사용해야 할 경우도 있는데, 이때 this 라는 예약어를 사용합니다.
+
+  ```js
+
+  let book4 = {
+    title = "javascript",
+    pages : 500,
+    done : false,
+    finish : function(){
+      book4.done === false ? console.log("읽는 중") : console.log("완독");
+    }
+  }
+  book4.finish()
+
+  ```
+
+  </details>
+
+  <details><summary>📘 객체 복사하기 </summary>
+
+  * 객체를 사용할 때 객체는 참조 형태로 값을 전달합니다.
+
+  </details>
+
+  <details><summary>📖 원시 유형의 자료 복사하기 </summary>
+
+  * 숫자나 문자열과 같은 원시 유형 자료는 값을 전달 합니다.
+
+  ```js
+
+  let number1 = 100
+  let number2 = number1
+  number1
+  number2
+
+  ```
+
+  </details>
+
+  <details><summary>📖 참조 주소 전달하기 </summary>
+
+  ```js
+
+  let bag1 = {
+    color : blue,
+    width : 30,
+    height : 50,
+  }
+  let bag2 = bag1
+  bag1
+  bag2
+
+  ```
+
+  </details>
+
+  <details><summary>📘 생성자 함수로 객체 만들기 </summary>
+
+  * 객체의 틀을 만들 때 함수를 사용하는데, 이 함수를 '생성자 함수'라고 합니다.
+
+  </details>
+
+  <details><summary>📖 생성자 함수 정의 </summary>
+
+  ```js
+
+  function 함수명(매개변수) {
+    this.키1 : 값1,
+    this.키2 : 값2,
+    this.메서드1 : function() { ... },
+    this.메서드2 : function() { ... },
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 new 예약어를 사용해 인스턴스 만들기 </summary>
+
+  ```js
+
+  let book1 = new Book("웹 표준의 정석", 648, false);
+  let book2 = new Book("점프 투 파이썬", 360, true);
+
+  console.log(`${book1.title} - ${book1.pages}쪽 - ${book1.finish()}`);
+  console.log(`${book2.title} - ${book2.pages}쪽 - ${book2.finish()}`);
+
+  ```
+
+  </details>
+
+  <details><summary>📘 클래스를 사용해 객체 만들기 </summary>
+
+  * 자바스크립트의 클래스는 정확한 클래스 개념이 아니라 생성자 함수를 좀 더 표현하기 쉽게 바꾼, 선택적 슈거 입니다.
+
+  </details>
+
+  <details><summary>📖 클래스 선언 </summary>
+
+  ```js
+
+  class 클래스명 {
+    constructor(){
+      프로퍼티1,
+      프로퍼티2,
+    }
+    메서드1() { ... }
+    메서드2() { ... }
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📘 for...in 사용하기 </summary>
+
+  ```js
+
+  let bag = {
+    type : "backpack",
+    color : "blue",
+    size : 15,
+  }
+
+  for(key in bag){
+    console.log(`${key}`);
+  }
+  for(key in bag){
+    console.log(`${key} : ${bag[key]}`);
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📘 Object 객체 메서드 사용하기 </summary>
+
+  ```js
+
+  let book1 = {
+    title : "웹 표준의 정석",
+    pages : 648,
+    buy : function(){
+      console.log("이 책을 구입했습니다.");
+    }
+  }
+
+  let keys = Object.keys(book1);
+  console.log(keys);
+
+  let values = Object.values(book1);
+  console.log(values);
+
+  let entries = Object.entries(book1);
+  console.log(entries);
+
+  ```
 
   </details>
 
