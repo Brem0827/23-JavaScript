@@ -26,6 +26,128 @@
 6. [📝6주차](#6주차)
 7. [📝7주차](#7주차)
 8. [📝10주차](#10주차)
+9. [📝11주차](#11주차)
+
+# 11주차
+
+## 📝 효율적으로 문자열과 배열 활용하기
+
+<details><summary>📘 chapter 10 </summary>
+
+  <details><summary>📖 원시 유형과 객체 </summary>
+
+  * 단순히 값만을 가지고 있을 경우에는 '원시 유형',
+  * 프로퍼티와 메서드를 가지고 있을 때는 '객체' 입니다.
+  * 자바스크립트에서는 원시 유형이어도 프로퍼티와 메서드를 사용할 수 있습니다.
+
+  </details>
+
+  <details><summary>📖 문자열의 길이 </summary>
+
+  * length 프로퍼티
+
+  ```js
+  
+  let str = "Good morning!";
+  let greeting = "안녕하세요?";
+  str.length
+  greeting.length
+
+  ```
+
+  </details>
+
+  <details><summary>📖 charAt() 메서드 </summary>
+
+  * 문자열에서 특정 위치의 문자를 가져오려면 charAt() 함수를 사용합니다.
+
+  ```js
+  
+  let str = "Good morning!";
+  str.charAt(3)
+  str[5]
+
+  ```
+
+  </details>
+
+  <details><summary>📖 indexOf() 메서드 </summary>
+
+  * 문자열에서 부분 문자열이 어디에 있는지 검색할 때 indexOf() 메서드를 사용하면 편리합니다.
+
+  ```js
+  
+  let str1 = "Good morning, everyone. Beautiful morning.";
+  str1.indexOf("morning"); // 5
+  str1.indexOf("evening"); // -1
+
+  ```
+
+  </details>
+
+  <details><summary>📖 startsWith() 메서드 </summary>
+
+  * 문자열이 특정 문자나 문자열로 시작하는지 확인해야 할 때 startsWith() 메서드를 사용할 수 있습니다.
+
+  ```js
+  
+  let str2 = "Hello, everyone.";
+  str2.startsWith("Hello"); // true
+  str2.startsWith("hello"); // false
+  str2.startsWith("He");    // true
+  str2.startsWith("Hello, ev"); // true
+
+  str2.startsWith("el", 1); // true
+  str2.startsWith("o", 4); // true
+
+  ```
+
+  </details>
+
+  <details><summary>📖 endsWith() 메서드 </summary>
+
+  * 문자열이 특정 문자나 문자열로 끝나는지 확인해야 할 때 endsWith() 메서드를 사용할 수 있습니다.
+
+  ```js
+  
+  str2.endsWith("everyone"); // true
+  str2.endsWith("Everyone"); // false
+  str2.endsWith("one."); // true
+  str2.endsWith("lo. everyone"); // false
+
+  ```
+
+  </details>
+
+  <details><summary>📖 includes() 메서드 </summary>
+
+  * 문자열이 특정 문자나 문자열이 포함되었는지 확인해야 할 때 includes() 메서드를 사용할 수 있습니다.
+
+  ```js
+  
+  str2.includes("every") // true
+
+  ```
+
+  </details>
+
+  <details><summary>📖 trim(), trimStart(), trimEnd() 메서드 </summary>
+
+  * 문자열이 특정 문자나 문자열이 포함되었는지 확인해야 할 때 includes() 메서드를 사용할 수 있습니다.
+
+  ```js
+  
+  let str3 = " ab cd ef ";
+  str3.trim()
+  str3.trimStart()
+  str3.trimEnd()
+
+  ```
+
+  </details>
+
+</details>
+
 
 # 10주차
 
