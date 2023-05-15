@@ -146,6 +146,46 @@
 
   </details>
 
+  <details><summary>📖 toUpperCase(), toLowerCase() 메서드 </summary>
+
+  * 영문자 문자열의 경우에는 모두 대문자, 또는 모두 소문자로 변경 가능합니다.
+
+  ```js
+  
+  let str4 = "Good morning."
+  str4.toUpperCase()
+  str4.toLowerCase()
+
+  ```
+
+  </details>
+
+  <details><summary>📖 substring() 메서드 </summary>
+
+  * 시작 위치부터 끝 위치의 직전까지 추출해서 반환
+
+  ```js
+  
+  str4.substring(5) // "morning"
+
+  ```
+
+  </details>
+
+  <details><summary>📖 slice() 메서드 </summary>
+
+  * 시작 위치만 지정하면 해당 위치부터 끝까지
+  * 시작 위치와 끝 위치를 함께 지정하면 시작 위치 부터 끝 위치 직전 까지 추출
+
+  ```js
+  
+  str4.slice(0, 4) // "Good"
+  str4.slice(-5, 12) // "Good morning"
+
+  ```
+
+  </details>
+
 </details>
 
 
