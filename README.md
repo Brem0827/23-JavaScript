@@ -324,6 +324,18 @@
 
   <details><summary>📖 OR 검색하기 </summary>
 
+  ```js
+
+  let str2 = "ES2015(ES6) is powerful"
+  let regexp - /ES2015|ES6/
+  regexp.test(str2)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 조건에 일치하는 문자열 찾기 </summary>
+
   <table>
   <th>표현식</th><th>기능</th><th>사용 예</th>
   <tr>
@@ -348,15 +360,374 @@
 
   </details>
 
-  <details><summary>📖 조건에 일치하는 문자열 찾기 </summary>
+  <details><summary>📖 자주 사용하는 정규 표현식 </summary>
+
+  <table>
+  <th>설명</th><th>정규 표현식</th>
+  <tr>
+    <td>숫자만 가능</td><td>/^[0-9]+$/</td>
+  </tr>
+  <tr>
+    <td>양의 정수</td><td>/^[1-9]\d*$</td>
+  </tr>
+  <tr>
+    <td>음의 정수</td><td>/^\-[1-9]\d*$</td>
+  </tr>
+  <tr>
+    <td>영문자만 가능</td><td>/^[a-zA-Z]+$/</td>
+  </tr>
+  <tr>
+    <td>숫자와 영문자만 가능</td><td>/^[a-zA-Z0-9]+$/</td>
+  </tr>
+  <tr>
+    <td>한글만 가능</td><td>/^[가-힣]+$/</td>
+  </tr>
+  <tr>
+    <td>한글과 영문자만 가능</td><td>/^[가-힣|a-zA-Z]+$/</td>
+  </tr>
+  <tr>
+    <td>길이가 5~10개</td><td>/^.{5,10}$/</td>
+  </tr>
+  <tr>
+    <td>메일 주소 체크</td><td>/^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/</td>
+  </tr>
+  <tr>
+    <td>전화번호 체크</td><td>/(\d{3}).*(\d{3}).*(\d{4})/</td>
+  </tr>
+  <tr>
+    <td>확장자를 가진 그림 파일</td><td>/([^\s]+(?=\.(jpg|gif|png))\.\2)/</td>
+  </tr>
+  <tr>
+    <td>1부터 n 사이의 번호</td><td>/^[1-9]{1}$|^[1-4]{1}[0-9]{1}$|^n$/</td>
+  </tr>
+  <tr>
+    <td>암호 체크</td><td>/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/</td>
+  </tr>
+  </table> <br/>
+
+  </details>
+
+  <details><summary>📖 split() 메서드 사용 </summary>
 
   ```js
 
-  let str2 = "ES2015(ES6) is powerful"
-  let regexp - /ES2015|ES6/
-  regexp.test(str2)
+  str5 = "Hello, everyone"
+  array2 = str5.split("");
 
   ```
+
+  </details>
+
+  <details><summary>📖 전개 연산자 </summary>
+
+  ```js
+
+  array3 = [...str5]
+
+  ```
+
+  </details>
+
+  <details><summary>📖 Array.from() 메서드 사용하기 </summary>
+
+  ```js
+
+  array4 = Array.from(str5)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 join() 메서드 </summary>
+
+  * 앞에서 문자 배열로 전환해서 저장했던 array4를 str5라는 문자열로 바꿀 수 있습니다.
+
+  ```js
+
+  str6 = array4.join("")
+
+  ```
+
+  </details>
+
+  <details><summary>📖 빈 배열을 만들고 값 할당 </summary>
+
+  ```js
+
+  let season = [];
+  season[0] = "spring";
+  season[1] = "summer";
+  season 
+
+  ```
+
+  </details>
+
+  <details><summary>📖 리터럴 표기법으로 만들기 </summary>
+
+  ```js
+
+  let pets = ["dog", "cat", "parrot"];
+  pets
+
+  ```
+
+  </details>
+
+  <details><summary>📖 Array 객체의 인스턴스 만들기 </summary>
+
+  ```js
+
+  let fruits = new Array("사과", "복숭아", "포도");
+  fruits
+
+  ```
+
+  </details>
+
+  <details><summary>📖 배열값 수정하기와 추가하기 </summary>
+
+  ```js
+
+  pets[1] = "hamster";
+  pets
+
+  ```
+
+  ```js
+
+  let fruits = new Array("사과", "복숭아", "포도");
+  fruits[4] = "배"
+  fruits
+  fruits[3] // undefined
+
+  ```
+
+  </details>
+
+  <details><summary>📖 forEach() 문 </summary>
+
+  * 인수가 1개인 forEach() 문
+
+  ```js
+
+  let animals = ["lion", "bear", "bird"]
+  animals.forEach(animal => {
+    console.log(animal)
+  })
+
+  ```
+
+  * 인수가 2개인 forEach() 문
+
+  ```js
+
+  animals.forEach((animal, index) => {
+    console.log(`animals[${index}] : ${animal}`);
+  });
+  animals[0] : lion
+  animals[1] : bear
+  animals[2] : bird
+
+  ```
+
+  * 인수가 3개인 forEach() 문
+
+  ```js
+
+  animals.forEach((animal, index, array) => {
+    console.log(`[${array}][${index}] : ${animal}`);
+  });
+  [lion, bear, bird][0] : lion
+  [lion, bear, bird][1] : bear
+  [lion, bear, bird][2] : bird
+
+  ```
+
+  </details>
+
+  <details><summary>📖 concat() 메서드 </summary>
+
+  ```js
+
+  let vegitable = ["양상추", "토마토", "피클"]
+  let meat = ["불고기"]
+
+  let meatBurger = vegitable.concat(meat, "빵")
+  meatBurger
+
+  ```
+
+  ```js
+
+  let meatBurger2 = meat.concat("빵", vegitable)
+  meatBurger2
+
+  ```
+
+  </details>
+
+  <details><summary>📖 전개 연산자 </summary>
+
+  ```js
+
+  let vegitable = ["양상추", "토마토", "피클"]
+  let cheese = ["모짜렐라", "슈레드"]
+
+  let cheeseBurger = ["빵", ...vegitable, ...cheese]
+  cheeseBurger
+
+  ```
+
+  ```js
+
+  let meatBurger2 = meat.concat("빵", vegitable)
+  meatBurger2
+
+  ```
+
+  </details>
+
+  <details><summary>📖 reverse() 메서드 </summary>
+
+  * 배열 요소의 순서를 거꾸로 바꾸는 메서드
+
+  ```js
+
+  let numbers = [6, 9, 3, 21, 18]
+  numbers.reverse()
+
+  ```
+
+  </details>
+
+  <details><summary>📖 sort() 메서드 </summary>
+
+  * 배열 요소를 문자열로 보고 정렬
+
+  ```js
+
+  let week = ["sum", "mon", "tue"]
+  let values = [5, 20, 3, 11, 4, 15]
+  week.sort()
+  values.sort()
+
+  ```
+
+  ```js
+
+  let values = [5, 20, 3, 11, 4, 15]
+  values.sort(function(a,b){
+    if( a > b ) return 1;
+    if( a < b ) return -1;
+    if( a === b ) return 0; 
+  })
+
+  ```
+
+  ```js
+
+  let values = [5, 20, 3, 11, 4, 15]
+  values.sort(function(a,b){
+    return a - b;
+  })
+
+  ```
+
+  </details>
+
+  <details><summary>📖 pop() & push() 메서드 </summary>
+
+  * pop() 메서드는 배열의 맨 끝에 있는 값을 제거
+  * push() 메서드는 배열의 맨 앞부분에 지정한 값을 추가
+
+  ```js
+
+  let animals = ["lion", "bear", "bird"]
+  animals.pop()
+  animals
+
+  ```
+
+  ```js
+
+  animals.push("tiger")
+  animals
+
+  ```
+
+  </details>
+
+  <details><summary>📖 shift() & unshift() 메서드 </summary>
+
+  ```js
+
+  let fruits = ["apple", "banana", "pear"]
+  fruits.shift() // "apple"
+  fruits         // ["banana", "pear"]
+
+  ```
+
+  ```js
+
+  fruits.unshift("cherry") // 3
+  fruits                   // ["cherry", "banana", "pear"]
+
+  ```
+
+  </details>
+
+  <details><summary>📖 splice() 메서드 </summary>
+
+  * 특정 위치부터 끝까지 요소 제거
+
+  ```js
+
+  let subjects = ["html", "css", "javascript", "react", "typescript"]
+  subjects.splice(2)
+  subjects
+
+  ```
+
+  * 특정 위치에서 원하는 개수만큼 요소 제거하기
+
+  ```js
+
+  let week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+  let weekday = week.splice(1, 5)
+  weekday
+  week
+
+  ```
+
+  * 특정 위치에 요소 추가하기
+
+  ```js
+
+  let brunch = ["egg", "milk", "apple", "banana"]
+  brunch.splice(2, 0, "coffee", "bread")
+  brunch
+
+  ```
+
+  * slice() 메서드
+
+  ```js
+
+  let colors = ["red", "green", "blue", "white", "black"]
+  colors.slice(2)
+  colors
+
+  ```
+
+  ```js
+
+  let colors2 = colors.slice(1, 4)
+  colors2
+  colors
+
+  ```
+
 
   </details>
 
