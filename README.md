@@ -186,6 +186,180 @@
 
   </details>
 
+  <details><summary>📖 split() 메서드 </summary>
+
+  * 새로운 배열을 반환
+
+  ```js
+  
+  str5 = "Hello everyone";
+  array1 = str5.split(" "); // ["Hello, everyone"]
+  array2 = str5.split(""); // ["H","e","l","l","o", "e","v",'e","r","y","o","n","e"]
+
+  ```
+
+  </details>
+
+  <details><summary>📖 정규 표현식 작성하기 </summary>
+
+  * 자바스크립트에서 정규 표현식을 만들 때는 RegExp 객체를 사용할 수도 있고, 간단히 슬래시를 사용하여 표현식으로 사용할 수도 있습니다.
+
+  ```js
+  
+  let regexp = /\d{3}/
+  regexp.test("Hello")
+  regexp.test("123")
+
+  ```
+
+  </details>
+
+  <details><summary>📖 정규 표현식과 메서드 </summary>
+
+  <table>
+  <th>정규표현식</th><th>기능</th>
+  <tr>
+    <td>정규식.test(문자열)</td><td>정규 표현식에 일치하는 부분 문자열이 있으면 true, 없으면 false를 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>정규식.exec(문자열)</td><td>정규 표현식에 일치하는 부분 문자열이 있으면 결과값을 배열 형태로, 없으면 null을 반환합니다.</td>
+  </tr>
+  </table> <br/>
+
+  <table>
+  <th>문자열 메서드</th><th>기능</th>
+  <tr>
+    <td>match(정규식)</td><td>문자열에서 정규 표현식에 일치하는 부분을 찾습니다.</td>
+  </tr>
+  <tr>
+    <td>replace(정규식, 바꿀 문자열)</td><td>문자열에서 정규 표현식에 맞는 부분 문자열을 찾아서 새로운 문자열로 바꿉니다.</td>
+  </tr>
+  </table>
+
+  </details>
+
+  <details><summary>📖 정규 표현식의 플래그 </summary>
+
+  <table>
+  <th>플래그</th><th>기능</th>
+  <tr>
+    <td>i</td><td>영문자의 대소문자를 구별하지 않고 검색합니다.</td>
+  </tr>
+  <tr>
+    <td>g</td><td>패턴과 일치하는 것을 모두 찾습니다. g 패턴이 없으면 일치하는 패턴 중 첫 번째 패턴만 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>m</td><td>문자열의 행이 바뀌어도 검색합니다.</td>
+  </tr>
+  </table> <br/>
+
+  </details>
+
+  <details><summary>📖 문자 클래스 사용하기 </summary>
+
+  <table>
+  <th>클래스의 종류</th><th>기호</th><th>설명</th>
+  <tr>
+    <td>숫자 클래스</td><td>\d</td><td>0 ~ 9 사이의 숫자</td>
+  </tr>
+  <tr>
+    <td>숫자 클래스</td><td>\D</td><td>숫자가 아닌 모든 문자</td>
+  </tr>
+  <tr>
+    <td>공백 클래스</td><td>\s</td><td>공백, 탭, 줄바꿈 등</td>
+  </tr>
+  <tr>
+    <td>공백 클래스</td><td>\S</td><td>공백이 아닌 모든 문자</td>
+  </tr>
+  <tr>
+    <td>단어 클래스</td><td>\w</td><td>단어에 들어가는 문자, 숫자와 언더바 포함</td>
+  </tr>
+  <tr>
+    <td>단어 클래스</td><td>\W</td><td>단어에 들어가지 않는 모든 문자</td>
+  </tr>
+  </table> <br/>
+
+  </details>
+
+  <details><summary>📖 문자열의 시작과 끝 체크 </summary>
+
+  * 정규 표현식에서 문자열의 시작과 끝 부분을 체크할 때는 ^기호와 $기호를 사용합니다.
+  * 이중에서 ^는 문자열의 시작, $는 문자열의 끝을 나타내는데, 이 기호를 앵커 기호 라고도 합니다.
+
+  ```js
+
+  let hello = "Hello, everyone"
+  /^H/.test(hello);
+  /^h/.test(hello);
+
+  ```
+
+  ```js
+
+  let hello = "Hello, everyone"
+  /one.$/.test(hello);
+  /e.$/.test(hello);
+  /one$/.test(hello);
+
+  ```
+
+  </details>
+
+  <details><summary>📖 반복 검색하기 </summary>
+
+  <table>
+  <th>표현식</th><th>기능</th>
+  <tr>
+    <td>패턴{n}</td><td>패턴이 n번 반복되는 것을 찾습니다.</td>
+  </tr>
+  <tr>
+    <td>패턴{n,}</td><td>패턴이 최소 n번 이상 반복되는 것을 찾습니다.</td>
+  </tr>
+  <tr>
+    <td>패턴{m,n}</td><td>패턴이 최소 m번 이상, 최대 n번 이하로 반복되는 것을 찾습니다.</td>
+  </tr>
+  </table> <br/>
+
+  </details>
+
+  <details><summary>📖 OR 검색하기 </summary>
+
+  <table>
+  <th>표현식</th><th>기능</th><th>사용 예</th>
+  <tr>
+    <td>{ }</td><td>식의 시작과 끝</td><td>[a-z] : a 부터 z 까지</td>
+  </tr>
+  <tr>
+    <td>^x</td><td>x로 시작하는 문자열, 대괄호 안에 ^가 있으면 NOT의 의미가 됩니다.</td><td>^[0-9]: 숫자로 시작하는 것, [^0-9]: 숫자가 아닌 것</td>
+  </tr>
+  <tr>
+    <td>x$</td><td>x로 끝나는 문자열</td><td>e$ : e로 끝나는 것</td>
+  </tr>
+  <tr>
+    <td>x+</td><td>x가 한 번 이상 반복되는 문자열</td><td>o+ : o, oo 처럼 o가 한번 이상 반복 되는 것</td>
+  </tr>
+  <tr>
+    <td>x?</td><td>x가 0번 이상 반복되는 문자열</td><td>x* : y, xy, xxy 처럼 x가 없거나 어러 번 나타나는 것</td>
+  </tr>
+  <tr>
+    <td></td><td>문자 하나</td><td>[x,z] " xyz나 xAz처럼 x와 z사이에 문자가 하나 있는 것</td>
+  </tr>
+  </table> <br/>
+
+  </details>
+
+  <details><summary>📖 조건에 일치하는 문자열 찾기 </summary>
+
+  ```js
+
+  let str2 = "ES2015(ES6) is powerful"
+  let regexp - /ES2015|ES6/
+  regexp.test(str2)
+
+  ```
+
+  </details>
+
 </details>
 
 
