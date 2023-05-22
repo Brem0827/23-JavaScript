@@ -27,6 +27,689 @@
 7. [📝7주차](#7주차)
 8. [📝10주차](#10주차)
 9. [📝11주차](#11주차)
+10. [📝12주차](#12주차)
+
+# 12주차
+
+## 📝 배열과 객체, 좀 더 깊게 살펴보기
+
+<details><summary>📘 chapter 11 </summary>
+
+  <details><summary>📖 매개변수 기본값 </summary>
+
+  * 함수를 선언할 때는 소괄호 안에 매개변수를 같이 지정하고 넘겨받는 값에 따라 결과를 표시
+  
+  * 매개변수에 기본값을 지정하지 않았을 때
+  ```js
+
+  function hello(name, message){
+    console.log(`${name}님` ${message})
+  }
+  hello("도레미", "반갑습니다.");
+  hello("백두산");
+
+  ```
+
+  * 매개변수에 기본값을 지정할 때
+  ```js
+
+  function hello(name, message = "안녕하세요?"){
+    console.log(`${name}님` ${message})
+  }
+  hello("도레미", "반갑습니다.");
+  hello("백두산");
+
+  ```
+
+  </details>
+
+  <details><summary>📖 전개 구문 </summary>
+
+  * 값을 펼쳐주는 구문
+  * 나머지 매개변수 혹은 전개 구문 이라고 합니다.
+  * 전개 구문에서는 '...'기호를 사용합니다.
+  
+  * 나머지 매개변수로 사용시
+  ```js
+
+  function addNum(...numbers){
+    let sum = 0;
+
+    for(let number of numbers)
+      sum += number;
+
+    return sum;
+  }
+
+  console.log(addNum(1,2));
+  console.log(addNum(1,2,3,4,5));
+
+  ```
+
+  * 전개구문을 사용해 배열 연결
+  ```js
+
+  const animal = ["bird", "cat"];
+  const fruits = ["apple", "banana", "cherry"];
+
+  animal.concat(fruits)
+  [...animal, ...fruits]
+
+  ```
+
+   * 전개구문을 사용해 배열 복사
+  ```js
+
+  const fruits = ["apple", "banana", "cherry"];
+  const favorite = fruits;
+
+  favorite[1] = "grape";
+  fruits
+
+  ```
+
+  ```js
+
+  const mine = [...fruits]
+  mine
+  mine[1] = "orange"
+  fruits
+  mine
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 객체의 프로퍼티 </summary>
+
+  * 대괄호 표기법
+  ```js
+
+  const book = {
+    title: "Javascript",
+    pages: 500
+  }
+  book.published date = "2022-01"
+
+  ```
+
+  ```js
+
+  book["published date"] = "2022-01"
+  book
+
+  ```
+
+  * 계산된 프로퍼티 이름
+  ```js
+
+  function fn(){
+    return "result";
+  }
+
+  const obj = {
+    [fn()] : "함수 키",
+  }
+  obj
+
+  ```
+
+  ```js
+
+  function add(a, b){
+    return a + b;
+  }
+
+  const obj = {
+    [fn()] : "함수 키",
+    [`${add(10, 20)} key`] : "계산식 키"
+  }
+  obj
+
+  ```
+
+  * 프로퍼티값 단축하기
+  ```js
+
+  let user = {
+    name : "도레미"
+  }
+  user.age = 25
+  user
+  
+  ```
+
+  ```js
+
+  function makeUser(name, age){
+    return(
+      name : name,
+      age : age
+    )
+  }
+  let user1 = makeUser("백두산", 20)
+  user1
+  
+  ```
+
+  ```js
+
+  function makeUser(name, age){
+    return(
+      name,
+      age
+    )
+  }
+  let user2 = makeUser("한라산", 27)
+  user2
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 객체에서 심벌키 사용 </summary>
+
+  ```js
+
+  let id1 = Symbol()
+  let id2 = Symbol()
+  id1 === id2
+
+  ```
+
+  * 심벌을 사용해 프로퍼티 정의
+  ```js
+
+  const id = Symbol("id")
+  const tel = Symbol("telephone number")
+
+  const member - {
+    name : "kim",
+    age : 25,
+    [id] : 1235,
+    [tel] : function(){
+      alert(prompt("전화번호 : "));
+    }
+  }
+
+  ```
+
+  ```js
+
+  for(item in member){
+    console.log(`${item} : ${member[item]}`)
+  }
+
+  ```
+
+  * 심벌키에 접근하기
+  ```js
+
+  member[id]
+  member[tel]()
+
+  ```
+
+  </details>
+
+  <details><summary>📖 전역 심벌 </summary>
+
+  * 여러 곳에서 같이 사용할 수 있는 심벌
+
+  * Symbol.for() 메서드
+  
+  ```js
+
+  let tel = Symbol.for("tel")
+  let phone = Symbol.for("tel")
+  tel === phone
+
+  ```
+
+  * Symbol.keyFor() 메서드
+  ```js
+
+  Symbol.keyFor(phone)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 구조 분해 할당 </summary>
+
+  * 말 그대로 주어진 자료의 구조를 분해하여 변수에 할당하는 기능입니다.
+
+  * 배열 구조 분해 할당
+  ```js
+
+  const fruits = ["사과", "복숭아"]
+  let apple = fruits[0]
+  let peach = fruits[1]
+
+  ```
+  
+  ```js
+
+  let [apple, peach] = ["사과", "복숭아"]
+
+  ```
+
+  ```js
+
+  const fruits = ["사과", "복숭아"]
+  let [apple, peach] = fruits
+
+  ```
+
+  ```js
+
+  apple
+  peach
+
+  ```
+
+  ```js
+
+  let [member1, member2] = []
+  member1
+  member2
+
+  ```
+
+  * 일부 값만 구조 분해 할당하기
+  ```js
+
+  let [spring, ,fall] = ["봄", "여름", "가을", "겨울"]
+  spring
+  fall
+
+  ```
+
+  * 나머지 변수를 사용해 구조 분해 할당하기
+  ```js
+
+  let [teacher, ...students] = ["Kim", "Lee", "Park", "Choi"]
+  teacher
+  students
+
+  ```
+
+  * 두 변수의 값 교환
+  ```js
+
+  let x = 10
+  let y = 20
+
+  ```
+
+  </details>
+
+  <details><summary>📖 객체 구조 분해 </summary>
+
+  ```js
+
+  const member = {
+    name : "kim",
+    age : 25
+  }
+
+  let {name, age} = number
+  name
+  age
+
+  ```
+
+  ```js
+
+  let name, age
+  {name, age} = {name : "Kim", age : 25}
+  name
+  age
+
+  ```
+
+  * 새로운 변수 이름 사용하기
+  ```js
+
+  const member = {
+    name : "Kim",
+    age : 25
+  }
+  let {name : userName, age} = member
+  userName
+
+  ```
+
+  * 중첩된 객체 구조 분해하기
+  ```js
+
+  const student = {
+    name : "도레미",
+    score : {
+      history : 85,
+      science : 94
+    },
+    friends : ["Kim", "Lee", "Park"]
+  }
+
+  ```
+
+  ```js
+
+  let {
+    name,
+    score : {
+      history,
+      science
+    },
+    friends : [f1, f2, f3]
+  } = students
+
+  ```
+
+  ```js
+
+  let { name, score : { history, science }, friends : [f1, f2, f3] } = students
+
+  ```
+
+  ```js
+
+  history
+  f2
+
+  ```
+
+  </details>
+
+  <details><summary>📖 배열 요소에 같은 함수 적용 </summary>
+
+  * 각 배열 요소에 똑같은 함수를 실행 한 후 그 결과를 새로운 배열로 반환하는 메서드
+
+  ```js
+
+  let numbers = [1, 2, 3, 4, 5]
+  let newNumbers = numbers.map(number => number * 2);
+  newNumbers
+
+  ```
+
+  ```js
+
+  map(함수(값, 인덱스))
+  map(함수(값, 인덱스, 배열))
+
+  ```
+
+  ```js
+
+  let numbers = [1, 2, 3, 4, 5]
+  let newNumbers2 = numbers.map((number, index) => index + (number * 3));
+  newNumbers2
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 특정 조건으로 골라내기 </summary>
+
+  * 이름에서 알 수 있듯이 특정 조건에 맞는 요소만 골라내는 메서드 입니다.
+
+  ```js
+
+  filter(함수(값))
+  filter(함수(값, 인덱스))
+  filter(함수(값, 인덱스, 배열))
+
+  ```
+
+  ```js
+
+  let scores = [90, 35, 64, 88, 45, 92]
+  highScores = scores.filter(scores => scores >= 85)
+  
+  ```
+
+  ```js
+
+  let scores = [90, 35, 64, 88, 45, 92]
+  let highScores2 = scores.filter((scores, index) =>{
+    if(score >= 85){
+      console.log(`index : ${index}, score : ${score}`)
+      return score
+    }
+  });
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 값 하나로 누적하기 </summary>
+
+  * 배열 원소에 차례대로 함수를 실행하여 하나의 결과값을 만듭니다.
+  * 이렇게 결과값을 하나만 반환하므로 계산 결과를 하나의 변수에 계속 누적시키는데, 이것을 누산기 라고합니다.
+
+  <table>
+  <th></th><th>total</th><th>current</th><th>result</th>
+  <tr>
+    <td>첫 번째 실행</td><td>0</td><td>1</td><td>1</td>
+  </tr>
+  <tr>
+    <td>두 번째 실행</td><td>1</td><td>2</td><td>3</td>
+  </tr>
+  <tr>
+    <td>세 번째 실행</td><td>3</td><td>3</td><td>6</td>
+  </tr>
+  <tr>
+    <td>네 번째 실행</td><td>6</td><td>5</td><td>10</td>
+  </tr>
+  <tr>
+    <td>다섯 번째 실행</td><td>10</td><td>6</td><td>15</td>
+  </tr>
+  </table> <br/>
+
+  ```js
+
+  let numbers = [1, 2, 3, 4, 5]
+  let result = numbers.reduce(
+    (total, current) => total + current, 0
+  );
+  result
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 맵과 셋이 등장한 이유 </summary>
+
+  * 객체에서 키에는 문자열만 사용할 수 있습니다. 하지만 맵에서는 키에 모든 값을 사용할 수 있습니다.
+  * 객체에는 여러 정보를 담을 수 있지만 프로퍼티 간에 순서가 없습니다. 하지만 맵과 셋에는 순서가 있습니다.
+  * for문과 같은 반복문을 사용해서 객체의 프로퍼티를 반복할 수 없습니다. 하지만 맵과 셋에서는 for... of와 같은 반복문을 사용할 수 있습니다.
+  * 객체에는 프로퍼티의 개수를 알려 주는 프로퍼티가 없습니다. 하지만 맵과 셋에는 별도의 프로퍼티가 있고, 이 외에도 객체보다 많은 메서드를 가지고 있습니다.
+
+  </details>
+
+  <details><summary>📖 맵이란?</summary>
+
+  * 키와 값이 하나의 쌍으로 이루어져 있고, 여러개의 프로퍼티를 가지고 있는 자료 형태
+
+  ```js
+
+  let bag = new Map();
+  bag.set("color", "red")
+
+  ```
+
+  ```js
+
+  let myCup = new Map([
+    ["color", "white"],
+    ["haveHandle", true],
+    ["material", "ceramic"],
+    ["capacity", "300ml"],
+  ])
+  myCup
+
+  ```
+
+  * 맵에서의 체이닝
+  ```js
+
+  bag.set("type", "mini")
+  bag.set("purpose", "daily")
+
+  ```
+
+  ```js
+
+  bag.set("type", "mini").set("purpose", "daily")
+
+  ```
+
+  </details>
+
+  <details><summary>📖 맵의 프로퍼티와 메서드 </summary>
+
+  * `size` 맵 요소의 개수를 알려주는 프로퍼티
+  `bag.size`
+  * `set(키, 값)` 프로퍼티를 추가합니다.
+  * `get(키)` 해당 키의 값을 반환합니다.
+  `bag.get("color")`
+  * `has(키)` 해당 키가 맵에 있는지 체크하고 true 또는 false로 반환
+  `bag.has("color")`
+  * `delete(키)` 해당 키가 있는 프로퍼티를 삭제
+  ```js
+
+  bag.delete("type")
+  bag.delete("name")
+  bag
+
+  ```
+  * `clear()` 맵의 모든 요소를 삭제합니다.
+  `bag.color()`
+  * `keys()` 각 요소의 키를 모아서 반환
+  * `values()` 각 요소의 값을 모아서 반환
+  * `entries()` [키, 값] 형태로 모든 요소를 반환
+
+  ```js
+
+  let myCup = new Map([
+    ["color", "white"],
+    ["haveHandle", true],
+    ["material", "ceramic"],
+    ["capacity", "300ml"],
+  ])
+  myCup.keys()
+
+  ```
+
+  ```js
+
+  MapIterator {"color", "haveHandle", "material", "capacity"}
+
+  ```
+
+  ```js
+
+  for(let key of myCup.keys()){
+    console.log(key)
+  }
+
+  ```
+
+  ```js
+
+  for(let value of myCup.values()){
+    console.log(value)
+  }
+
+  for(let entry of myCup.entris()){
+    console.log(entry)
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 set이란? </summary>
+
+  * 키 없이 여러 개의 값을 모아 놓은 것으로, 값이 중복되어도 상관 없습니다.
+
+  ```js
+
+  let numSet1 = new Set()
+  numSet1.add("one")
+  numSet1.add("two")
+
+  ```
+
+  ```js
+
+  let numSet1 = new Set().add("one").add("two")
+
+  ```
+
+  ```js
+
+  let numSet2 = new Set([1, 2, 3])
+  numSet2
+  let numSet3 = new Set([1, 2, 1, 3, 1, 5])
+  numSet3
+
+  ```
+
+  </details>
+
+  <details><summary>📖 set의 프로퍼티와 메서드 </summary>
+
+  * `size` 셋 요소의 개수를 알려주는 프로퍼티
+  * `add(값)` 셋에 값을 추가합니다.
+  * `has(값)` 셋에 해당 값이 있는지 체크
+  * `delete(키)` 셋에서 해당 값을 삭제
+  * `clear()` 셋을 비웁니다.
+
+  ```js
+
+  let students = new Set()
+  students.add("도레미")
+  students.add("백두산")
+  students.add("도레미")
+  students
+
+  ```
+
+  ```js
+
+  students
+  students.add("백두산")
+  students.add("한라산")
+  students.delete("도레미")
+  students
+  students.clear()
+  students
+
+  ```
+
+  ```js
+
+  students.keys()
+  students.values()
+  students.entries()
+
+  ```
+
+  ```js
+
+  let languages = new Set(["js", "c", "python", "c", "js"])
+  for(let language of languages.values()){
+    console.log(language)
+  }
+
+  ```
+
+  </details>
+
+</details>
 
 # 11주차
 
