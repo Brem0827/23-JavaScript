@@ -28,6 +28,465 @@
 8. [📝10주차](#10주차)
 9. [📝11주차](#11주차)
 10. [📝12주차](#12주차)
+11. [📝13주차](#13주차)
+
+# 13주차
+
+## 📝 HTTP 통신과 JSON
+
+<details><summary>📘 chapter 12 </summary>
+
+  <details><summary>📖 HTTP란? </summary>
+
+  * 클라이언트와 서버간에 자료를 주고받으려면 미리 약속된 규칙이 필요한데, 이것을 `프로토콜`이라고 합니다.
+  * 웹 에서는 `HTTP`라는 프로토콜을 사용합니다.
+  * 그리고 클라이언트에서 서버로 자료 요청하는 것은 `HTTP 요청`, 서버에서 응답해서 클라이언트로 자료를 보내는 것은 `HTTP 응답`이라고 합니다.
+
+  </details>
+
+  <details><summary>📖 요청 헤더와 응답 헤더 </summary>
+
+  * 사이트 주소 뿐만아닌 사용 중인 시스템 정보와 웹 브라우저 정보, 사용한 언어등 다른 정보까지 함께 전송되는데, 이런 정보는 `헤더`의 형태로 전송되므로 요청할 때 보내는 헤더를 `요청 헤더` 라고합니다.
+  * 응답 메세지를 보내는 시간, 메세지를 클라이언트에 어떻게 표시할지 등의 정보는 `응답 헤더`에 담기고, 이미지나 텍스트 같은 실제 사이트 내용은 `응답 본문`에 담겨서 전달됩니다.
+
+  </details>
+
+  <details><summary>📖 요청방식, GET과 POST </summary>
+
+  * `GET 방식`은 서버에 자료를 요청할 때 사이트 주소의 뒤에 자료를 붙여서 보내는 방식 입니다.
+  * 웹 브라우저 창에서 서버로 보내는 요청 헤더에 `GET 메서드`를 사용합니다.
+  * `POST 방식`은 서버에 자료를 보낼 때 요청하는 방식으로, 흔히 회원가입 폼이나 로그인 폼에서 중요한 자료를 입력하고 `서버`로 보낼 때 사용합니다.
+  * `POST 방식`을 사용하면 요청 내용이 겉으로 드러나지 않고 `요청 본문`에 따로 담겨서 전송됩니다.
+
+  </details>
+
+  <details><summary>📖 응답 상태 </summary>
+
+  <table>
+    <th>코드</th><th>메세지</th><th>기능</th>
+    <tr>
+      <td>2XX</td><td>성공</td><td>자료 요청을 수락했거나 자료를 성공적으로 전송했습니다.</td>
+    </tr>
+    <tr>
+      <td>200</td><td>OK</td><td>서버에서 클라이언트로 성공적으로 전송했습니다.</td>
+    </tr>
+    <tr>
+      <td>202</td><td>Accepted</td><td>서버에서 클라이언트 요청을 수락했습니다.</td>
+    </tr>
+    <tr>
+      <td>4XX</td><td>클라이언트 오류</td><td>클라이언트에서 주소를 잘못 입력 했거나 요청이 잘못되었습니다.</td>
+    </tr>
+    <tr>
+      <td>400</td><td>Bad Request</td><td>요청을 실패 했습니다.</td>
+    </tr>
+    <tr>
+      <td>401</td><td>Unauthorized</td><td>권한이 없어 거절되었지만, 인증 가능합니다.</td>
+    </tr>
+    <tr>
+      <td>403</td><td>Forbidden</td><td>권한이 없어 거절되었고, 인증을 시도해도 계속 거절됩니다.</td>
+    </tr>
+    <tr>
+      <td>404</td><td>Not Found</td><td>문서를 찾을 수 없습니다.</td>
+    </tr>
+    <tr>
+      <td>408</td><td>Request Timeout</td><td>요청 시간이 초과되었습니다.</td>
+    </tr>
+    <tr>
+      <td>5XX</td><td>서버오류</td><td>서버 측의 오류로 처리할 수 없습니다.</td>
+    </tr>
+    <tr>
+      <td>500</td><td>Internal Server Error</td><td>서버의 내부에 오류가 발생했습니다.</td>
+    </tr>
+    <tr>
+      <td>503</td><td>Service Unavailable</td><td>요청한 서비스를 이용할 수 없습니다.</td>
+    </tr>
+  </table>
+   <br/>
+
+  </details>
+
+  <details><summary>📖 JSON </summary>
+
+  * JSON은 `JavaScript Object Notation`의 줄임말로, 말 그대로 자바스크립트 객체 표기법을 사용하는 텍스트 형식의 자료를 가리킵니다.
+
+  * JSON의 형식
+  * JSON은 중괄호 사이에 이름과 값으로 구성되고 쉼표로 구분해서 여러 개의 쌍을 나열할 수 있습니다.
+  ```js
+
+  {
+    "이름" : 값,
+  }
+
+  ```
+  * 객체로 표현할 때
+  ```js
+
+  {
+    name : 값,
+  }
+
+  ```
+  * JSON으로 표현할 때
+  ```js
+
+  {
+    "name" : 값,
+  }
+
+  ```
+  * JSON의 이름을 맞게 사용한 예
+  ```js
+
+  {
+    "name" : 값,
+  }
+
+  ```
+  * JSON의 이름을 잘못 사용한 예
+  ```js
+
+  {
+    'name' : 값,
+    name : 값,
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 JSON의 값 </summary>
+
+  * JSON 자료의 값에서는 수와 문자열, 논리값, null과 같은 기본 자료형과 배열, 객체와 같은 복합 자료형을 사용할 수 있습니다.
+
+  * 숫자형 `48, -72, 25.8, -8.4, 2.3e4`
+  * 문자열 `자바스크립트, HTML5`
+  * 논리값과 null
+  * JSON 문자열과 배열
+  ```js
+
+  {
+    "name" : "도레미",
+    "major" : "컴퓨터 공학",
+    "grade" : 2,
+    "course" : ["웹 기초", "자바스크립트", "인공지능"]
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 객체를 JSON 자료로 변환하기 </summary>
+
+  * 객체를 JSON 문자열로 변환하는 것을 `직렬화` 라고 하고, `JSON.stringify()` 함수를 사용합니다.
+  `JSON.stringify(객체)`
+
+  ```js
+
+  let student = {name : "도레미", major:"컴퓨터 공학", grade:2}
+  let json = JSON.stringify(student)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 JSON 문자열을 객체로 변환하기 </summary>
+
+  * JSON 문자열을 자바스크립트 객체로 변환하는 것을 `파싱`이라고 하고, 이때 `JSON.parse()` 함수를 사용합니다.
+  `JSON.parse(JSON 문자열)`
+
+  ```js
+
+  let member = '{"name" : "백두산", "age" : 30, "hobby" : "swimming"}'
+  let member_obj = JSON.parse(member)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 AJAX란? </summary>
+
+  * 웹 문서 전체를 다시 불러오지 않고 일부분만 가져와서 실행하는 것을 `AJAX`라고 합니다.
+  * 첫 글자인 A는 `비동기`를 가리킵니다.
+
+  * 비동기란, `동시에 일어나지 않는다`는 뜻 입니다.
+
+  * 두 번째 글자인 J는 `자바스크립트`를 의미합니다.
+  * 세 번째 A는 `And`의 의미이고, 마지막 글자인 X는 `XML`에서 가져왔습니다.
+
+  </details>
+
+  <details><summary>📖 XMLHttpRequest 객체 만들기 </summary>
+
+  * 이름에는 XML이라고 되어있지만, XML뿐만 아닌 JSON을 비롯하여 여러 종류의 자료를 요청하고 받아올 수 있습니다.
+  `new XMLHttpRequest()`
+
+  ```js
+
+  let xhr = new XMLHttpRequest()
+
+  ```
+
+  </details>
+
+  <details><summary>📖 open 메서드 </summary>
+
+  * open() 메서드를 사용해서 어떤 방식을 사용할지, 어떤자료가 필요한지, 그리고 비동기 처리 여부를 지정하는데, 이 과정을 `요청 초기화` 라고 합니다.
+  `open(방식, 자료 위치, 비동기 여부)`
+
+  * 방식 : HTTP 요청 방식을 지정합니다. 주로 사용하는 값은 GET과 POST, PUT 중 하나이고 영문 대문자로 사용해야 합니다.
+  * 자료 위치 : 요청할 서버의 URL을 지정합니다.
+  * 비동기 여부 : 비동기 요청인지, 동기 요청인지를 판단하는 항목입니다. 사용할 수 있는 값은 true와 false인데, true이면 비동기로, false이면 동기로 판단합니다. 기본적으로 비동기 처리하므로 따로 지정하지 않으면 비동기로 처리합니다.(기본값 true), 만약 동기처리하려면 false로 지정합니다.
+
+  </details>
+
+  <details><summary>📖 send() 메서드 </summary>
+
+  * `send(내용)`
+  * send() 메서드는 사용자 요청을 서버로 보내는 메서드입니다.
+  * send() 메서드에서 소괄호 안에 들어가는 매개변수는 옵션입니다.
+
+  * setRequestHeader(header, value) : HTTP 요청을 보내기 전에 HTTP의 header 값을 특정 값으로 설정할 때 사용하는 메서드로, 반드시 open() 메서드 다음에 써야 합니다.
+  * getResponseHeader() : 서버 웅답 중에서 HTTP 헤더를 알아내고 싶을 때 사용하는 메서드 입니다.
+  * getAllResponseHeaders() : HTTP 요청에 대한 모든 응답 헤더들을 반환합니다. Content-Length, Date, URI 등을 포함하는 헤더 정보의 키와 값을 쌍으로 반환합니다.
+
+  </details>
+
+  <details><summary>📖 JSON 파일 요청 </summary>
+
+  ```js
+
+  let chr = new XMLHttpRequest();
+  xhr.open("GET", "student.json");
+  xhr.send();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 readyState 프로퍼티 </summary>
+
+  <table>
+    <th>상태</th><th>기능</th>
+    <tr>
+      <td>0</td><td>아직 아무 요청도 하지 않은 상태입니다.</td>
+    </tr>
+    <tr>
+      <td>1</td><td>서버로 자료를 요청하고 성공한 상태 입니다.</td>
+    </tr>
+    <tr>
+      <td>2</td><td>서버 요청에 대한 응답으로 헤더가 도착한 상태입니다.</td>
+    </tr>
+    <tr>
+      <td>3</td><td>서버에서 자료가 로딩중인 상태입니다.</td>
+    </tr>
+    <tr>
+      <td>4</td><td>자료 처리가 끝나 프로그램에서 사용할 수 있는 상태입니다.</td>
+    </tr>
+  </table>
+   <br/>
+
+  </details>
+
+  <details><summary>📖 State 프로퍼티와 statusText 프로퍼티 </summary>
+
+  * status 프로퍼티는 HTTP 상태 코드를 나타내고 statusText 프로퍼티는 상태에 대한 설명 메세지를 알려줍니다.
+
+  </details>
+
+  <details><summary>📖 readystatechange 이벤트 </summary>
+
+  * readyState 값이 바뀔 때마다 발생하므로 이 이벤트를 사용해서 상태에 따라 필요한 명령을 처리할 수 있습니다.
+
+  ```js
+
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState == 4) {
+
+    }
+  }
+
+  ```
+
+  ```js
+
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState == 4 && xhr.state == 200) {
+
+    }
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 responseText 프로퍼티 </summary>
+
+  * responseText 프로퍼티에는 요청에 대한 응답이 문자열 형태로 저장됩니다.
+
+  ```js
+
+  let students = JSON.parse(xhr.resopnseText);
+  document.getElementById("result")
+
+  ```
+
+  </details>
+
+</details>
+
+<details><summary>📘 chapter 13 </summary>
+
+  <details><summary>📖 동기 처리 방식과 비동기 처리 방식 </summary>
+
+  * 동기 처리 방식
+
+  ```js
+
+  function displayA() {
+  console.log("A");
+  }
+  function displayB() {
+    console.log("B");
+  }
+  function displayC() {
+    console.log("C");
+  }    
+  displayA();
+  displayB();
+  displayC();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 자바스크립트는 싱글 스레드 언어 </summary>
+
+  * 자바스크립트는 기본적으로 한 번에 하나의 작업만 처리하는 `싱글 스레드 언어`입니다.
+  * 스레드는 프로세스에서 작업을 실행하는 `단위`를 가리키는데, 한 번에 하나의 스레드만 처리하면 `싱글 스레드`, 한 번에 여러 개의 스레드를 사용한다면 `멀티 스레드` 라고 합니다.
+
+  ```js
+
+  function displayA() {
+  console.log("A");
+  }
+  function displayB() {
+    setTimeout(() => console.log("B"), 2000);
+  }
+  function displayC() {
+    console.log("C");
+  }    
+  displayA();
+  displayB();
+  displayC();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 비동기 처리 방식 </summary>
+
+  * 실행 시간이 다른 함수들을 원하는 처리순서에 맞게 프로그래밍 하는 것을 `비동기 처리` 라고 합니다.
+
+  ```js
+
+  function displayA() {
+  console.log("A");
+  }
+  function displayB(callback) {
+    setTimeout(() => {
+      console.log("B");
+      callback();
+    }, 2000);
+  }
+  function displayC() {
+    console.log("C");
+  }    
+  displayA();
+  displayB(displayC);
+
+  ```
+
+  <table>
+    <th>비동기 방식</th><th>버전</th><th>기능</th>
+    <tr>
+      <td>콜백 함수</td><td>기존부터 사용</td><td>함수 안에 또 다른 함수를 매개변수로 넘겨서 실행 순서를 제어합니다. 콜백 함수가 많아지면 가독성이 떨어질 수 있습니다.</td>
+    </tr>
+    <tr>
+      <td>프로미스</td><td>에크마스크립트2015 부터 도입</td><td>Promise 객체와 콜백 함수를 사용해서 실행순서를 제어</td>
+    </tr>
+    <tr>
+      <td>async, await</td><td>에크마스크립트2017 부터 도입</td><td>async 함수와 await 예약어를 사용해서 실행순서를 제어</td>
+    </tr>
+  </table>
+   <br/>
+
+  </details>
+
+  <details><summary>📖 비동기 처리와 콜백 함수 </summary>
+
+  * 함수 이름을 콜백으로 사용하기
+
+  ```js
+
+  function order(coffee){
+    console.log(`${coffee} 주문 접수`);
+  }
+
+  ```
+
+  ```js
+
+  function order(result){
+    console.log(`${result} 준비 완료`);
+  }
+
+  ```
+
+  ```js
+
+  function order(coffee, callback) {
+  console.log(`${coffee} 주문 접수`);
+  setTimeout(() => {
+    callback(coffee);
+    }, 3000);    
+  }
+  function display(result) {
+    console.log(`${result} 준비 완료 🥤 `);
+  }
+
+  order("아메리카노", display); 
+
+  ```
+
+  </details>
+
+  <details><summary>📖 익명으로 콜백 함수 작성하기 </summary>
+
+  ```js
+
+  function displayLetter() {
+    console.log("A");
+    setTimeout( () => {
+      console.log("B");
+      setTimeout( () => {
+        console.log("C");
+        setTimeout( () => {
+          console.log("D");
+          setTimeout( () => {
+            console.log("stop!");
+          }, 1000);
+        }, 1000);
+      },1000);
+    }, 1000);
+  }   
+
+  displayLetter();ㅓ
+
+  ```
+
+  </details>
+
+</details>
 
 # 12주차
 
