@@ -29,6 +29,171 @@
 9. [📝11주차](#11주차)
 10. [📝12주차](#12주차)
 11. [📝13주차](#13주차)
+12. [📝14주차](#14주차)
+
+# 14주차
+
+## 📝 비동기 프로그래밍
+
+<details><summary>📘 chapter 13 </summary>
+
+  <details><summary>📖 동기 처리 방식과 비동기 처리 방식 </summary>
+
+  * 동기 처리 방식
+
+  ```js
+
+  function displayA() {
+  console.log("A");
+  }
+  function displayB() {
+    console.log("B");
+  }
+  function displayC() {
+    console.log("C");
+  }    
+  displayA();
+  displayB();
+  displayC();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 자바스크립트는 싱글 스레드 언어 </summary>
+
+  * 자바스크립트는 기본적으로 한 번에 하나의 작업만 처리하는 `싱글 스레드 언어`입니다.
+  * 스레드는 프로세스에서 작업을 실행하는 `단위`를 가리키는데, 한 번에 하나의 스레드만 처리하면 `싱글 스레드`, 한 번에 여러 개의 스레드를 사용한다면 `멀티 스레드` 라고 합니다.
+
+  ```js
+
+  function displayA() {
+  console.log("A");
+  }
+  function displayB() {
+    setTimeout(() => console.log("B"), 2000);
+  }
+  function displayC() {
+    console.log("C");
+  }    
+  displayA();
+  displayB();
+  displayC();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 비동기 처리 방식 </summary>
+
+  * 실행 시간이 다른 함수들을 원하는 처리순서에 맞게 프로그래밍 하는 것을 `비동기 처리` 라고 합니다.
+
+  ```js
+
+  function displayA() {
+  console.log("A");
+  }
+  function displayB(callback) {
+    setTimeout(() => {
+      console.log("B");
+      callback();
+    }, 2000);
+  }
+  function displayC() {
+    console.log("C");
+  }    
+  displayA();
+  displayB(displayC);
+
+  ```
+
+  <table>
+    <th>비동기 방식</th><th>버전</th><th>기능</th>
+    <tr>
+      <td>콜백 함수</td><td>기존부터 사용</td><td>함수 안에 또 다른 함수를 매개변수로 넘겨서 실행 순서를 제어합니다. 콜백 함수가 많아지면 가독성이 떨어질 수 있습니다.</td>
+    </tr>
+    <tr>
+      <td>프로미스</td><td>에크마스크립트2015 부터 도입</td><td>Promise 객체와 콜백 함수를 사용해서 실행순서를 제어</td>
+    </tr>
+    <tr>
+      <td>async, await</td><td>에크마스크립트2017 부터 도입</td><td>async 함수와 await 예약어를 사용해서 실행순서를 제어</td>
+    </tr>
+  </table>
+   <br/>
+
+  </details>
+
+  <details><summary>📖 비동기 처리와 콜백 함수 </summary>
+
+  * 함수 이름을 콜백으로 사용하기
+
+  ```js
+
+  function order(coffee){
+    console.log(`${coffee} 주문 접수`);
+  }
+
+  ```
+
+  ```js
+
+  function order(result){
+    console.log(`${result} 준비 완료`);
+  }
+
+  ```
+
+  ```js
+
+  function order(coffee, callback) {
+  console.log(`${coffee} 주문 접수`);
+  setTimeout(() => {
+    callback(coffee);
+    }, 3000);    
+  }
+  function display(result) {
+    console.log(`${result} 준비 완료 🥤 `);
+  }
+
+  order("아메리카노", display); 
+
+  ```
+
+  </details>
+
+  <details><summary>📖 익명으로 콜백 함수 작성하기 </summary>
+
+  ```js
+
+  function displayLetter() {
+    console.log("A");
+    setTimeout( () => {
+      console.log("B");
+      setTimeout( () => {
+        console.log("C");
+        setTimeout( () => {
+          console.log("D");
+          setTimeout( () => {
+            console.log("stop!");
+          }, 1000);
+        }, 1000);
+      },1000);
+    }, 1000);
+  }   
+
+  displayLetter();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 프로미스 </summary>
+
+  * 프로미스는 이름에서 알 수 있듯이 처리에 성공했을때 실행할 콜백 함수와 성공하지 않았을때 실행할 콜백 함수를 미리 약속 하는 것 입니다.
+
+  </details>
+
+</details>
 
 # 13주차
 
