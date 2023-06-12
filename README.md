@@ -31,9 +31,516 @@
 11. [📝13주차](#13주차)
 12. [📝14주차](#14주차)
 
-# 14주차
+# 14주차(9주차 보강)
 
 ## 📝 비동기 프로그래밍
+
+<details><summary>📘 chapter 14 </summary>
+
+  <details><summary>📖 캔버스 란 </summary>
+
+  * Canvas API를 사용하여 웹 문서 화면에 자유롭게 도형이나 직선을 그리는 기능을 간단히 `캔버스`라고 부릅니다.
+
+  </details>
+
+  <details><summary>📖 캔버스의 특징 </summary>
+
+  * Canvas API를 이용하면 2차원 화면에 한 픽셀씩 그림을 그릴 수 있어서 그래픽을 세밀하게 제어할 수 있습니다.
+  * 그래서 `UI`나 `차트`와 같은 `그래픽`보다 `게임 캐릭터`나 `배경 이미지`처럼 세밀한 제어가 필요한 그래픽 화면을 만들 때 주로 사용합니다.
+
+  </details>
+
+  <details><summary>📖 canvas 태그 </summary>
+
+  * 웹 페이지에서 그래픽을 제어할 수 있는 캔버스 영역을 지정합니다.
+  * 캔버스 영역에서는 그림을 그릴 수 있을 뿐만 아니라 이미지나 동영상을 불러와서 조작할 수도 있습니다.
+
+  ```html
+
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캔버스 만들기</title>
+    <style>
+      body {
+        display:flex;
+        justify-content: flex-start;
+        align-items: top;
+      }
+      div {
+        margin:10px 20px;
+      }
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas-1">
+      <h2>크기를 지정하지 않을 때</h2>
+      <canvas></canvas>
+    </div>
+    <div>
+      <h2>크기를 지정했을 때 400*300</h2>
+      <canvas width="400" height="300"></canvas>
+    </div>  
+  </body>
+  </html>
+
+  ```
+  
+  </details>
+
+  <details><summary>📖 화면 전체를 캔버스로 사용 </summary>
+
+  ```html
+
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캔버스 만들기</title>
+    <style>
+      body {
+        margin:0;
+        overflow:hidden;
+      }
+      canvas {
+        background-color:#ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+
+    <script src="./js/canvas-2.js"></script>
+  </body>
+  </html>
+
+  ```
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+      
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  ```
+
+  </details>
+
+  <details><summary>📖 getContext() 메서드로 렌더링 콘텍스트 만들기 </summary>
+
+  * `캔버스`에서 무엇인가를 그리려면 `렌더링 콘텍스트`를 만들고 자바스크립트를 사용해서 `렌더링 콘텍스트`를 조작해야합니다.
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.fillStyle = "rgb(200,0,0)";
+  ctx.fillRect(10, 10, 50, 100);
+
+  ```
+
+  </details>
+
+  <details><summary>📖 캔버스에서 좌표 이해하기 </summary>
+
+  * 캔버스에서 그래픽을 그리거나 기존의 그래픽 또는 동영상을 불러와서 조작할 경우 좌푯값이 기준이 됩니다.
+
+  </details>
+
+  <details><summary>📖 캔버스에서 각도 이해하기 </summary>
+
+  * 캔버스에서는 가로 축의 오른쪽을 기준으로 시계 방향으로 각도를 측정합니다.
+  * 각도의 값은 `도`로 표시하지 않고 `라디안 값`으로 표기합니다.
+  * `1라디안`은 `180도` 이고, `Math.PI/ 180`으로 표기합니다.
+  `radians = (Math.PI/ 180) * degree`
+
+  </details>
+
+  <details><summary>📖 사각형을 그리는 메서드 </summary>
+
+  <table>
+    <th>메서드</th><th>기능</th>
+    <tr>
+      <td>fillRect(x,y,width,height)</td><td>(x,y) 위치부터 시작해서 지정한 너비와 높이만큼 색이 채워진 사각형을 그립니다.</td>
+    </tr>
+    <tr>
+      <td>strokeRect(x,y,width,height)</td><td>(x,y) 위치부터 시작해서 지정한 너비와 높이만큼 테두리만 있는 사각형을 그립니다.</td>
+    </tr>
+    <tr>
+      <td>clearRect(x,y,width,height)</td><td>(x,y) 위치부터 시작해서 지정한 너비와 높이만큼 사각형 영역을 지웁니다.</td>
+    </tr>
+  </table>
+   <br/>
+
+  </details>
+
+  <details><summary>📖 채우기 색과 선 색 지정하기 </summary>
+
+  <table>
+    <th>속성</th><th>기능</th>
+    <tr>
+      <td>fillStyle="색상"</td><td>도형을 채우는 색상을 지정합니다.</td>
+    </tr>
+    <tr>
+      <td>strokeStyle="색상"</td><td>도형의 선 색상을 지정합니다.</td>
+    </tr>
+  </table>
+   <br/>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.fillStyle = "rgb(200,0,0)";   // 채우기 색 - 빨강
+  ctx.storkeStyle = "black";         // 선 색 - 검정
+  ctx.fillRect(10, 10, 200, 100);  // 빨간색으로 채운 사각형
+
+  ctx.strokeRect(10, 10, 200, 100);  // 검정색 선을 가진 사각형
+
+  ctx.fillStyle = "blue";
+  ctx.fillRect(50, 50, 120, 100);   // 파란색으로 채운 사각형
+
+  ctx.clearRect(70, 80, 80, 45);  // 사각형 지우기
+
+  ```
+
+  </details>
+
+  <details><summary>📖 삼각형 그리기 </summary>
+
+  1. beginPath() 메서드를 이용하여 경로가 시작되는 것을 알립니다.
+  2. 원하는 경로를 그립니다. 경로를 그리는 메서드는 Canvas API에서 제공하므로 경로에 따라 사용하는 메서드가 달라집니다.
+  3. closePath() 메서드를 이용하여 경로의 시작점부터 끝나는 점까지 선을 그립니다. 이 메서드는 옵션이므로 도형을 채울 경우에는 사용하지 않아도 됩니다.
+  4. stroke() 메서드로 테두리를 그리거나 fill() 메서드로 도형을 채웁니다.
+
+  </details>
+
+  <details><summary>📖 캔버스에 직선 그리기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.beginPath();
+  ctx.moveTo(50, 50);
+  ctx.lineTo(200, 200);
+  ctx.stroke();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 경로를 그리는 메서드로 삼각형 완성하기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector("canvas");
+  const ctx = canvas.getContext("2d");
+
+  ctx.beginPath(); // 경로를 시작합니다.
+  ctx.moveTo(50, 50); // 시작점을 (50,50) 위치로 이동시킵니다.
+  ctx.lineTo(150, 100); // 시작점에서 (150, 100)까지 경로를 만듭니다.
+  ctx.lineTo(50, 150); // 앞서 그린 경로 끝점에서 (50,150)까지 경로를 만듭니다.
+  ctx.closePath(); // 경로를 닫습니다. (닫힌 도형)
+  ctx.stroke(); // 지금까지 만든 경로를 선으로 그립니다.
+
+  ctx.beginPath(); // 경로를 시작합니다.
+  ctx.moveTo(150, 100); // 시작점을 (150, 100) 위치로 이동시킵니다.
+  ctx.lineTo(250, 50); // 시작점에서 (250, 50)까지 직선을 만듭니다.
+  ctx.lineTo(250, 150); // 시작점에서 (250, 150)까지 직선을 만듭니다.
+  ctx.closePath(); // 경로를 닫습니다. (닫힌 도형)
+  ctx.fillStyle = "rgb(0, 200, 0)"; // 채우기 색을 rgb(0,200,0)으로 지정합니다.
+  ctx.fill(); // 만들어진 (닫힌) 도형에 색을 채웁니다.
+
+  ```
+
+  </details>
+
+  <details><summary>📖 원이나 호 그리기 </summary>
+
+  `arc(x, y, r, startAngle, endAngel [, counterClockwise])`
+  * x,y : 원의 중점
+  * r : 원의 반지름
+  * startAngle : 원이나 호의 시작점을 라디안으로 표시합니다.
+  * endAngle : 원이나 호의 끝점을 라디안으로 표시합니다.
+  * counterClockwise : 반시계 방향으로 그릴지 여부를 참이나 거짓으로 지정하고 따로 지정하지않으면 true로 인식합니다. 즉, 반시계 방향으로 그립니다.
+
+  </details>
+
+  <details><summary>📖 원그리기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.fillStyle = "yellow";
+  ctx.strokeStyle = "red";
+
+  ctx.beginPath()
+  ctx.arc(200, 150, 100, 0, Math.PI * 2, true);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 반원과 호 그리기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector("canvas");
+  const ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.arc(120, 100, 50, 0, (Math.PI / 180) * 180, true); // 반시계 방향
+  ctx.arc(280, 100, 50, 0, (Math.PI / 180) * 180, false); // 시계 방향
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(120, 200, 50, (Math.PI / 180) * 90, (Math.PI / 180) * 270, false); // 90도부터 270도까지 시계 방향으로 선으로 반원 그리기
+  ctx.closePath();
+  ctx.stroke();
+
+  ctx.strokeStyle = "blue";
+  ctx.moveTo(200, 100);
+  ctx.beginPath();
+  ctx.arc(200, 200, 50, 0, (Math.PI / 180) * 60, false); // 0도부터 60도까지 시계방향을 선으로 호 그리기
+  ctx.stroke();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 타원 그리기 </summary>
+
+  `ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngel [, counterClockwise])`
+  * x,y : 타원의 중점
+  * radiusX : 타원의 가로 반지름
+  * radiusY : 타원의 세로 반지름
+  * rotation : 타원의 회전 크기, 라디안값으로 지정합니다.
+  * startAngle : 타원의 시작점을 라디안으로 표시합니다.
+  * endAngle : 타원의 끝점을 라디안으로 표시합니다.
+  * counterClockwise : 반시계 방향으로 그릴지 여부를 참이나 거짓으로 지정하고 따로 지정하지않으면 true로 인식합니다. 즉, 반시계 방향으로 그립니다.
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.strokeStyle = "red";
+  ctx.beginPath();
+  ctx.ellipse(200, 70, 80, 50, 0, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.strokeStyle = "blue";
+  ctx.beginPath();
+  ctx.ellipse(150, 200, 80, 50, (Math.PI / 180) * -30, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 원을 변형해서 타원 그리기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  // 원의 세로 길이를 축소해서 타원으로 그리기
+  ctx.strokeStyle = "blue";
+  ctx.scale(1, 0.7);
+  ctx.beginPath()
+  ctx.arc(200, 150, 80, 0, Math.PI * 2, true);
+  ctx.stroke();
+  ctx.beginPath()
+  ctx.arc(200, 150, 30, 0, Math.PI * 2, false);
+  ctx.stroke();
+  ctx.closePath();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 2차 베지에 곡선 그리기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.beginPath();
+  ctx.moveTo(50, 200);   // 곡선 시작 위치
+  ctx.quadraticCurveTo(200, 50, 350, 200); // 시작 위치부터 (350, 200)까지 곡선 그리기
+  ctx.stroke();
+
+  ```
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.beginPath();
+  ctx.moveTo(50, 100);   // 곡선 시작 위치
+  ctx.quadraticCurveTo(100, 50, 150, 100); 
+  ctx.quadraticCurveTo(200, 150, 250, 100); 
+  ctx.quadraticCurveTo(300, 50, 350, 100); 
+  ctx.stroke();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 3차 베지에 곡선 그리기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");    
+
+  ctx.beginPath();
+  ctx.moveTo(50, 100);   // 곡선 시작 위치
+  ctx.bezierCurveTo(90, 250, 310, 10, 350, 100); 
+  ctx.strokeStyle = "green";    
+  ctx.stroke();
+
+  ```
+
+  </details>
+
+  <details><summary>📖 Path2D 객체 사용하기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");  
+
+  let triangle = new Path2D();   // 삼각형 경로 객체
+  triangle.moveTo(100, 100);
+  triangle.lineTo(300, 100);
+  triangle.lineTo(200, 260);
+  triangle.closePath();
+
+  let circle = new Path2D();    // 원 경로 객체
+  circle.arc(200, 155, 50, 0, Math.PI * 2);
+
+  ctx.fillStyle = "green";
+  ctx.stroke(triangle);
+  ctx.fill(circle);
+
+  ```
+
+  </details>
+
+  <details><summary>📖 텍스트를 그리는 메서드 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");
+
+  ctx.font = "60px Arial";
+  ctx.fillText("HELLO", 50, 70);
+  ctx.strokeText("HELLO", 50, 150);
+
+  ```
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");
+
+  ctx.font = "italic 60px serif";
+  ctx.fillText("Javascript", 50, 70);
+  ctx.font = "bold 60px sans-serif";
+  ctx.fillText("Javascript", 50, 150);
+
+  ```
+
+  </details>
+
+  <details><summary>📖 이미지 그리기 </summary>
+
+  ```js
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");
+
+  let img = new Image();
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0);
+  } 
+  img.src = "images/cat.jpg";
+
+  ```
+
+  </details>
+
+  <details><summary>📖 이미지 크기 조절하기 </summary>
+
+  `drawImage(image, dx, dy, dw ,dh)`
+  * image : 캔버스에 표시할 이미지 객체를 지정합니다.
+  * dx, dy : 캔버스의 왼쪽 위 모서리로부터 얼마나 떨어져서 이미지를 표시할지 지정합니다.
+  * dw, dh : 캔버스에 표시할 이미지 크기를 지정합니다.
+
+  </details>
+
+  <details><summary>📖 이미지의 일부분만 표시하기 </summary>
+
+  ```js
+  
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");
+
+  let img = new Image();
+  img.onload = function() {
+    ctx.drawImage(img, 100, 50, 280, 350, 160, 100, 140, 175);   
+  } 
+  img.src = "images/cat.jpg";  
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 이미지 클리핑하기 </summary>
+
+  ```js
+  
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext("2d");
+
+  let img = new Image();
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);   // 캔버스 크기에 맞게 지정
+  } 
+  img.src = "images/bird.jpg";
+  ctx.beginPath();
+  ctx.arc(300, 200, 150, 0, Math.PI * 2, false);
+  ctx.clip(); 
+  
+  ```
+
+  </details>
+
+</details>
 
 <details><summary>📘 chapter 13 </summary>
 
@@ -190,6 +697,389 @@
   <details><summary>📖 프로미스 </summary>
 
   * 프로미스는 이름에서 알 수 있듯이 처리에 성공했을때 실행할 콜백 함수와 성공하지 않았을때 실행할 콜백 함수를 미리 약속 하는 것 입니다.
+
+  `new Promise(resolve, reject)`
+
+  ```js
+
+  const pizza = new Promise((resolve, reject) => {
+    // 실행할 소스를 작성
+  })
+
+  ```
+
+  ```js
+
+  let likePizza = true;      // 이 값을 false로 바꿔서도 테스트해 보세요. 
+  const pizza = new Promise((resolve, reject) => {
+    if (likePizza) 
+      resolve('피자를 주문합니다.');
+    else
+      reject('피자를 주문하지 않습니다.');
+  });
+
+
+  pizza
+    .then(
+      result => console.log(result)
+    )
+    .catch(
+      err => console.log(err)
+    );
+
+  // 아래와 같이 작성할 수도 있음  
+  // pizza.then(
+  //   result => console.log(result),
+  //   err => console.log(err)
+  // );    
+
+  ```
+
+  </details>
+
+  <details><summary>📖 Promise 객체 사용하기 </summary>
+
+  * Promise 객체를 사용하는 소스를  `소비 코드` 라고 합니다. 즉, `프로미스는 객체를 생성하는 부분`과 `프로미스를 사용하는 부분`으로 나뉩니다.
+  * 프로미스를 실행할 때는 `then() 메서드`와 `catch() 메서드`, `finally() 메서드`를 사용합니다.
+
+  </details>
+
+  <details><summary>📖 then()과 catch() </summary>
+
+  * `.then()`과 `.catch()`가 `하나의 문` 입니다. 그리고 then()과 catch()메서드에서 사용한 result변수나 err변수에는 다른 이름을 사용해도 됩니다.
+
+  ```js
+
+  let likePizza = false;      // 이 값을 false로 바꿔서도 테스트해 보세요. 
+  const pizza = new Promise((resolve, reject) => {
+    if (likePizza) 
+      resolve('피자를 주문합니다.');
+    else
+      reject('피자를 주문하지 않습니다.');
+  });
+
+
+  pizza
+    .then(
+      result => console.log(result)
+    )
+    .catch(
+      err => console.log(err)
+    );
+
+  // 아래와 같이 작성할 수도 있음  
+  // pizza.then(
+  //   result => console.log(result),
+  //   err => console.log(err)
+  // );    
+
+  ```
+
+  </details>
+
+  <details><summary>📖 finally </summary>
+
+  * 프로미스를 실행할 때 사용하는 `finally`는 프로미스에서 `성공`을 넘기든, `실패`를 넘기든 상관없이 `마지막에 실행하려고 할 때 사용`합니다.
+
+  ```js
+
+  let likePizza = true;
+  const pizza = new Promise((resolve, reject) => {
+    if (likePizza) 
+      resolve('피자를 주문합니다.');
+    else
+      reject('피자를 주문하지 않습니다.');
+  });
+
+  pizza
+    .then(
+      result => console.log(result)
+    )
+    .catch(
+      err => console.log(err)
+    )
+    .finally (
+      () => console.log('완료')
+    );  
+
+  ```
+
+  <table>
+    <th>상태</th><th>설명</th>
+    <tr>
+      <td>pending</td><td>처음 프로미스를 만들면 대기 상태가 됩니다.</td><
+    </tr>
+    <tr>
+      <td>fulfilled</td><td>처리에 성공하면 이행 상태가 됩니다.</td>
+    </tr>
+    <tr>
+      <td>reject</td><td>처리에 성공하지 못하면 거부 상태가 됩니다.</td>
+    </tr>
+  </table>
+   <br/>
+
+  </details>
+
+  <details><summary>📖 콜백 함수로 여러 단계 연결하기 </summary>
+
+  ```js
+
+  const step1 = (callback) => {
+  setTimeout(() => {
+    console.log("피자 도우 준비");
+    callback();
+    }, 2000);
+  }
+
+  const step2 = (callback) => {
+    setTimeout(() => {
+      console.log("토핑 완료");
+      callback();
+    }, 1000);
+  }
+
+  const step3 = (callback) => {
+    setTimeout(() => {
+      console.log("굽기 완료");
+      callback();
+    }, 2000);
+  }
+
+  console.log("피자를 주문합니다.");
+  step1(function() {
+    step2(function() {
+      step3(function() {
+        console.log("피자가 준비되었습니다. 🍕");
+      });
+    });
+  });
+
+  ```
+
+  </details>
+
+  <details><summary>📖 프로미스 체이닝 </summary>
+
+  * then() 메서드를 사용해서 여러 개의 프로미스를 연결하는 것을 `프로미스 체이닝`이라고 합니다.
+  * then() 메서드가 프로미스와 프로미스를 연결하는 사슬이되는 셈이죠.
+
+  ```js
+
+  const pizza = () => {
+  return new Promise((resolve, reject) => {
+      resolve("피자를 주문합니다.");
+  });
+  };
+
+  const step1 = (message) => {
+    console.log(message);
+  };
+
+  pizza().then(result => step1(result));
+
+  ```
+
+  ```js
+
+  const pizza = () => {
+  return new Promise((resolve, reject) => {
+    resolve('피자를 주문합니다.');
+  });
+  };
+
+  const step1 = (message) => {
+    console.log(message);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('피자 도우 준비');
+      }, 3000);
+    });
+  };
+
+  const step2 = (message) => {
+    console.log(message);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('토핑 완료');
+      }, 1000);
+    });
+  };
+
+  const step3 = (message) => {
+    console.log(message);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('굽기 완료');
+      }, 2000);
+    });
+  };
+
+  pizza()
+    .then((result) => step1(result)) // pizza()가 성공하면 step1() 실행
+    .then((result) => step2(result)) // step1()이 성공하면 step2() 실행
+    .then((result) => step3(result)) // step2()이 성공하면 step3() 실행
+    .then((result) => console.log(result)) // step3()이 성공하면 "굽기 완료" 표시
+    .then(() => {
+      console.log('피자가 준비되었습니다. 🍕');
+    });
+
+  // 위의 소비 코드를 아래와 같이 축약해서 표현할 수 있습니다.
+  // pizza()
+  // .then(step1)
+  // .then(step2)
+  // .then(step3)
+  // .then(console.log)
+  // .then(() => {
+  //   console.log("피자가 준비되었습니다. 🍕");
+  // });
+
+  ```
+
+  </details>
+
+  <details><summary>📖 프로미스 소비 코드 줄여서 작성하기 </summary>
+
+  ```js
+
+  pizza()
+    .then(result => step1(result))
+
+  ```
+
+  ```js
+
+  pizza()
+    .then(step1)
+
+  ```
+
+  ```js
+
+  pizza()
+    .then(step1)
+    .then(step2)
+    .then(step3)
+    .then(console.log)
+    .then(() => {
+      console.log("피자가 준비되었습니다.");
+    });
+
+  ```
+
+  </details>
+
+  <details><summary>📖 fetch API </summary>
+
+  * `fetch`는 앞에서 살펴보았던 `AJAX`처럼 서버로 요청을 보내거나 자료를 받아오는 방법이지만 프로미스를 반환한다는게 가장 중요한 차이점 입니다.
+
+  `fetch(위치, 옵션)`
+  * 위치 : 자료가 있는 URL이나 파일 이름을 입력합니다.
+  * 옵션 : GET이나 POST같은 요청방식을 지정합니다. 따로 지정하지 않을 경우 GET메서드를 사용해서 서버로부터 값을 가져오고 이외에도 매개변수가 필요할 경우에는 매개변수를 넣을 수 있습니다.
+
+  </details>
+
+  <details><summary>📖 fetch로 파일 가져오기 </summary>
+
+  ```js
+  
+  fetch('student-2.json')                  // 1) json 파일을 읽어온다.
+  .then(response => response.json())       // 2) json 파일을 객체로 변환한다.
+  .then(json => {                          // 3) 객체를 출력한다.  
+    let output = '';
+    json.forEach(student => {
+      output += `
+        <h2>${student.name}</h2>
+        <ul>
+          <li>전공 : ${student.major}</li>
+          <li>학년 : ${student.grade}</li>
+        </ul>
+        <hr>
+      `;
+    });
+    document.querySelector('#result').innerHTML = output;
+  })
+  .catch(error => console.log(error));    // 4) 에러가 발생하면 에러를 출력한다.
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 async 함수 </summary>
+
+  ```js
+
+  function displayHello() {
+  console.log("Hello");
+  }
+
+  displayHello();
+
+  ```
+
+  ```js
+
+  async function displayHello() {
+  console.log("Hello");
+  }
+
+  displayHello();
+
+  ```
+
+  ```js
+
+  function whatsYourFavorite() {
+  let fav = "Javascript";
+  return new Promise((resolve, reject) => resolve(fav));      
+  }
+
+  function displaySubject(subject) {
+    return new Promise((resolve, reject) => resolve(`Hello, ${subject}`));      
+  }
+
+  whatsYourFavorite()
+  .then(displaySubject)  // .then(response => displaySubject(response))
+  .then (console.log);   // .then (result => console.log(result));
+
+  ```
+
+  ```js
+
+  async function whatsYourFavorite() {
+  let fav = "Javascript";
+  return fav;   
+  }
+
+  async function displaySubject(subject) {
+    return `Hello, ${subject}`;      
+  }
+
+  whatsYourFavorite()
+  .then(displaySubject)  // .then(response => displaySubject(response))
+  .then (console.log);  // .then (result => console.log(result));
+
+  ```
+
+  ```js
+
+  async function whatsYourFavorite() {
+  let fav = "Javascript";
+  return fav;   
+  }
+
+  async function displaySubject(subject) {
+    return `Hello, ${subject}`;      
+  }
+
+  async function init() {
+    const fav = await whatsYourFavorite();
+    const result = await displaySubject(fav);
+    console.log(result);
+  }
+
+  init();
+
+  ```
 
   </details>
 
