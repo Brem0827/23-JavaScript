@@ -30,6 +30,467 @@
 10. [📝12주차](#12주차)
 11. [📝13주차](#13주차)
 12. [📝14주차](#14주차)
+13. [📝15주차](#15주차)
+
+# 15주차(시험 전 보강)
+
+## 📝 기말고사 대비
+
+<details><summary>📘 기말 정리 </summary>
+
+  <details><summary>📖 기말고사 </summary>
+
+  * 객관식 10문항, 주관식 5문항 출제
+  * 주관식은 중간고사 보다 난이도가 낮으며 3줄이내로 끝낼수있는 문제
+  * 문자열 관련, 길이, 문자열에서 찾아내는 것, 문자열 추출, 정규 표현식(기본), 문자열을 배열로 변환 및 배열을 문자로 변환, 배열 요소 순환, 매개변수, 전개구문, 구조 분해 할당, JSON의 개념, AJAX의 개념
+
+  </details>
+
+  <details><summary>📖 문자열의 길이 </summary>
+
+  * length 프로퍼티
+
+  ```js
+  
+  let str = "Good morning!";
+  let greeting = "안녕하세요?";
+  str.length
+  greeting.length
+
+  ```
+
+  </details>
+
+  <details><summary>📖 charAt() 메서드 </summary>
+
+  * 문자열에서 특정 위치의 문자를 가져오려면 charAt() 함수를 사용합니다.
+
+  ```js
+  
+  let str = "Good morning!";
+  str.charAt(3)
+  str[5]
+
+  ```
+
+  </details>
+
+  <details><summary>📖 substring() 메서드 </summary>
+
+  * 시작 위치부터 끝 위치의 직전까지 추출해서 반환
+
+  ```js
+  
+  str4.substring(5) // "morning"
+
+  ```
+
+  </details>
+
+  <details><summary>📖 slice() 메서드 </summary>
+
+  * 시작 위치만 지정하면 해당 위치부터 끝까지
+  * 시작 위치와 끝 위치를 함께 지정하면 시작 위치 부터 끝 위치 직전 까지 추출
+
+  ```js
+  
+  str4.slice(0, 4) // "Good"
+  str4.slice(-5, 12) // "Good morning"
+
+  ```
+
+  </details>
+
+  <details><summary>📖 자주 사용하는 정규 표현식 </summary>
+
+  <table>
+  <th>설명</th><th>정규 표현식</th>
+  <tr>
+    <td>숫자만 가능</td><td>/^[0-9]+$/</td>
+  </tr>
+  <tr>
+    <td>양의 정수</td><td>/^[1-9]\d*$</td>
+  </tr>
+  <tr>
+    <td>음의 정수</td><td>/^\-[1-9]\d*$</td>
+  </tr>
+  <tr>
+    <td>영문자만 가능</td><td>/^[a-zA-Z]+$/</td>
+  </tr>
+  <tr>
+    <td>숫자와 영문자만 가능</td><td>/^[a-zA-Z0-9]+$/</td>
+  </tr>
+  <tr>
+    <td>한글만 가능</td><td>/^[가-힣]+$/</td>
+  </tr>
+  <tr>
+    <td>한글과 영문자만 가능</td><td>/^[가-힣|a-zA-Z]+$/</td>
+  </tr>
+  <tr>
+    <td>길이가 5~10개</td><td>/^.{5,10}$/</td>
+  </tr>
+  <tr>
+    <td>메일 주소 체크</td><td>/^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/</td>
+  </tr>
+  <tr>
+    <td>전화번호 체크</td><td>/(\d{3}).*(\d{3}).*(\d{4})/</td>
+  </tr>
+  <tr>
+    <td>확장자를 가진 그림 파일</td><td>/([^\s]+(?=\.(jpg|gif|png))\.\2)/</td>
+  </tr>
+  <tr>
+    <td>1부터 n 사이의 번호</td><td>/^[1-9]{1}$|^[1-4]{1}[0-9]{1}$|^n$/</td>
+  </tr>
+  <tr>
+    <td>암호 체크</td><td>/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/</td>
+  </tr>
+  </table> <br/>
+
+  </details>
+
+  <details><summary>📖 매개변수 기본값 </summary>
+
+  * 함수를 선언할 때는 소괄호 안에 매개변수를 같이 지정하고 넘겨받는 값에 따라 결과를 표시
+  
+  * 매개변수에 기본값을 지정하지 않았을 때
+  ```js
+
+  function hello(name, message){
+    console.log(`${name}님` ${message})
+  }
+  hello("도레미", "반갑습니다.");
+  hello("백두산");
+
+  ```
+
+  * 매개변수에 기본값을 지정할 때
+  ```js
+
+  function hello(name, message = "안녕하세요?"){
+    console.log(`${name}님` ${message})
+  }
+  hello("도레미", "반갑습니다.");
+  hello("백두산");
+
+  ```
+
+  </details>
+
+  <details><summary>📖 전개 구문 </summary>
+
+  * 값을 펼쳐주는 구문
+  * 나머지 매개변수 혹은 전개 구문 이라고 합니다.
+  * 전개 구문에서는 '...'기호를 사용합니다.
+  
+  * 나머지 매개변수로 사용시
+  ```js
+
+  function addNum(...numbers){
+    let sum = 0;
+
+    for(let number of numbers)
+      sum += number;
+
+    return sum;
+  }
+
+  console.log(addNum(1,2));
+  console.log(addNum(1,2,3,4,5));
+
+  ```
+
+  * 전개구문을 사용해 배열 연결
+  ```js
+
+  const animal = ["bird", "cat"];
+  const fruits = ["apple", "banana", "cherry"];
+
+  animal.concat(fruits)
+  [...animal, ...fruits]
+
+  ```
+
+   * 전개구문을 사용해 배열 복사
+  ```js
+
+  const fruits = ["apple", "banana", "cherry"];
+  const favorite = fruits;
+
+  favorite[1] = "grape";
+  fruits
+
+  ```
+
+  ```js
+
+  const mine = [...fruits]
+  mine
+  mine[1] = "orange"
+  fruits
+  mine
+  
+  ```
+
+  </details>
+
+  <details><summary>📖 구조 분해 할당 </summary>
+
+  * 말 그대로 주어진 자료의 구조를 분해하여 변수에 할당하는 기능입니다.
+
+  * 배열 구조 분해 할당
+  ```js
+
+  const fruits = ["사과", "복숭아"]
+  let apple = fruits[0]
+  let peach = fruits[1]
+
+  ```
+  
+  ```js
+
+  let [apple, peach] = ["사과", "복숭아"]
+
+  ```
+
+  ```js
+
+  const fruits = ["사과", "복숭아"]
+  let [apple, peach] = fruits
+
+  ```
+
+  ```js
+
+  apple
+  peach
+
+  ```
+
+  ```js
+
+  let [member1, member2] = []
+  member1
+  member2
+
+  ```
+
+  * 일부 값만 구조 분해 할당하기
+  ```js
+
+  let [spring, ,fall] = ["봄", "여름", "가을", "겨울"]
+  spring
+  fall
+
+  ```
+
+  * 나머지 변수를 사용해 구조 분해 할당하기
+  ```js
+
+  let [teacher, ...students] = ["Kim", "Lee", "Park", "Choi"]
+  teacher
+  students
+
+  ```
+
+  * 두 변수의 값 교환
+  ```js
+
+  let x = 10
+  let y = 20
+
+  ```
+
+  </details>
+
+  <details><summary>📖 객체 구조 분해 </summary>
+
+  ```js
+
+  const member = {
+    name : "kim",
+    age : 25
+  }
+
+  let {name, age} = number
+  name
+  age
+
+  ```
+
+  ```js
+
+  let name, age
+  {name, age} = {name : "Kim", age : 25}
+  name
+  age
+
+  ```
+
+  * 새로운 변수 이름 사용하기
+  ```js
+
+  const member = {
+    name : "Kim",
+    age : 25
+  }
+  let {name : userName, age} = member
+  userName
+
+  ```
+
+  * 중첩된 객체 구조 분해하기
+  ```js
+
+  const student = {
+    name : "도레미",
+    score : {
+      history : 85,
+      science : 94
+    },
+    friends : ["Kim", "Lee", "Park"]
+  }
+
+  ```
+
+  ```js
+
+  let {
+    name,
+    score : {
+      history,
+      science
+    },
+    friends : [f1, f2, f3]
+  } = students
+
+  ```
+
+  ```js
+
+  let { name, score : { history, science }, friends : [f1, f2, f3] } = students
+
+  ```
+
+  ```js
+
+  history
+  f2
+
+  ```
+
+  </details>
+
+  <details><summary>📖 JSON </summary>
+
+  * JSON은 `JavaScript Object Notation`의 줄임말로, 말 그대로 자바스크립트 객체 표기법을 사용하는 텍스트 형식의 자료를 가리킵니다.
+
+  * JSON의 형식
+  * JSON은 중괄호 사이에 이름과 값으로 구성되고 쉼표로 구분해서 여러 개의 쌍을 나열할 수 있습니다.
+  ```js
+
+  {
+    "이름" : 값,
+  }
+
+  ```
+  * 객체로 표현할 때
+  ```js
+
+  {
+    name : 값,
+  }
+
+  ```
+  * JSON으로 표현할 때
+  ```js
+
+  {
+    "name" : 값,
+  }
+
+  ```
+  * JSON의 이름을 맞게 사용한 예
+  ```js
+
+  {
+    "name" : 값,
+  }
+
+  ```
+  * JSON의 이름을 잘못 사용한 예
+  ```js
+
+  {
+    'name' : 값,
+    name : 값,
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 JSON의 값 </summary>
+
+  * JSON 자료의 값에서는 수와 문자열, 논리값, null과 같은 기본 자료형과 배열, 객체와 같은 복합 자료형을 사용할 수 있습니다.
+
+  * 숫자형 `48, -72, 25.8, -8.4, 2.3e4`
+  * 문자열 `자바스크립트, HTML5`
+  * 논리값과 null
+  * JSON 문자열과 배열
+  ```js
+
+  {
+    "name" : "도레미",
+    "major" : "컴퓨터 공학",
+    "grade" : 2,
+    "course" : ["웹 기초", "자바스크립트", "인공지능"]
+  }
+
+  ```
+
+  </details>
+
+  <details><summary>📖 객체를 JSON 자료로 변환하기 </summary>
+
+  * 객체를 JSON 문자열로 변환하는 것을 `직렬화` 라고 하고, `JSON.stringify()` 함수를 사용합니다.
+  `JSON.stringify(객체)`
+
+  ```js
+
+  let student = {name : "도레미", major:"컴퓨터 공학", grade:2}
+  let json = JSON.stringify(student)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 JSON 문자열을 객체로 변환하기 </summary>
+
+  * JSON 문자열을 자바스크립트 객체로 변환하는 것을 `파싱`이라고 하고, 이때 `JSON.parse()` 함수를 사용합니다.
+  `JSON.parse(JSON 문자열)`
+
+  ```js
+
+  let member = '{"name" : "백두산", "age" : 30, "hobby" : "swimming"}'
+  let member_obj = JSON.parse(member)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 AJAX란? </summary>
+
+  * 웹 문서 전체를 다시 불러오지 않고 일부분만 가져와서 실행하는 것을 `AJAX`라고 합니다.
+  * 첫 글자인 A는 `비동기`를 가리킵니다.
+
+  * 비동기란, `동시에 일어나지 않는다`는 뜻 입니다.
+
+  * 두 번째 글자인 J는 `자바스크립트`를 의미합니다.
+  * 세 번째 A는 `And`의 의미이고, 마지막 글자인 X는 `XML`에서 가져왔습니다.
+
+  </details>
+
+</details>
 
 # 14주차(9주차 보강)
 
