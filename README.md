@@ -87,17 +87,20 @@
 
   </details>
 
-  <details><summary>📖 slice() 메서드 </summary>
+  <details><summary>📖 정규 표현식의 플래그 </summary>
 
-  * 시작 위치만 지정하면 해당 위치부터 끝까지
-  * 시작 위치와 끝 위치를 함께 지정하면 시작 위치 부터 끝 위치 직전 까지 추출
-
-  ```js
-  
-  str4.slice(0, 4) // "Good"
-  str4.slice(-5, 12) // "Good morning"
-
-  ```
+  <table>
+  <th>플래그</th><th>기능</th>
+  <tr>
+    <td>i</td><td>영문자의 대소문자를 구별하지 않고 검색합니다.</td>
+  </tr>
+  <tr>
+    <td>g</td><td>패턴과 일치하는 것을 모두 찾습니다. g 패턴이 없으면 일치하는 패턴 중 첫 번째 패턴만 반환합니다.</td>
+  </tr>
+  <tr>
+    <td>m</td><td>문자열의 행이 바뀌어도 검색합니다.</td>
+  </tr>
+  </table> <br/>
 
   </details>
 
@@ -148,6 +151,90 @@
 
   </details>
 
+  <details><summary>📖 split() 메서드 사용 </summary>
+
+  ```js
+
+  str5 = "Hello, everyone"
+  array2 = str5.split("");
+
+  ```
+
+  </details>
+
+  <details><summary>📖 전개 연산자 </summary>
+
+  ```js
+
+  array3 = [...str5]
+
+  ```
+
+  </details>
+
+  <details><summary>📖 Array.from() 메서드 사용하기 </summary>
+
+  ```js
+
+  array4 = Array.from(str5)
+
+  ```
+
+  </details>
+
+  <details><summary>📖 join() 메서드 </summary>
+
+  * 앞에서 문자 배열로 전환해서 저장했던 array4를 str5라는 문자열로 바꿀 수 있습니다.
+
+  ```js
+
+  str6 = array4.join("")
+
+  ```
+
+  </details>
+
+  <details><summary>📖 forEach() 문 </summary>
+
+  * 인수가 1개인 forEach() 문
+
+  ```js
+
+  let animals = ["lion", "bear", "bird"]
+  animals.forEach(animal => {
+    console.log(animal)
+  })
+
+  ```
+
+  * 인수가 2개인 forEach() 문
+
+  ```js
+
+  animals.forEach((animal, index) => {
+    console.log(`animals[${index}] : ${animal}`);
+  });
+  animals[0] : lion
+  animals[1] : bear
+  animals[2] : bird
+
+  ```
+
+  * 인수가 3개인 forEach() 문
+
+  ```js
+
+  animals.forEach((animal, index, array) => {
+    console.log(`[${array}][${index}] : ${animal}`);
+  });
+  [lion, bear, bird][0] : lion
+  [lion, bear, bird][1] : bear
+  [lion, bear, bird][2] : bird
+
+  ```
+
+  </details>
+
   <details><summary>📖 매개변수 기본값 </summary>
 
   * 함수를 선언할 때는 소괄호 안에 매개변수를 같이 지정하고 넘겨받는 값에 따라 결과를 표시
@@ -175,6 +262,28 @@
   ```
 
   </details>
+
+  <details><summary>📖 concat() 메서드 [배열 합치기] </summary>
+
+  ```js
+
+  let vegitable = ["양상추", "토마토", "피클"]
+  let meat = ["불고기"]
+
+  let meatBurger = vegitable.concat(meat, "빵")
+  meatBurger
+
+  ```
+
+  ```js
+
+  let meatBurger2 = meat.concat("빵", vegitable)
+  meatBurger2
+
+  ```
+
+  </details>
+
 
   <details><summary>📖 전개 구문 </summary>
 
@@ -424,55 +533,6 @@
     'name' : 값,
     name : 값,
   }
-
-  ```
-
-  </details>
-
-  <details><summary>📖 JSON의 값 </summary>
-
-  * JSON 자료의 값에서는 수와 문자열, 논리값, null과 같은 기본 자료형과 배열, 객체와 같은 복합 자료형을 사용할 수 있습니다.
-
-  * 숫자형 `48, -72, 25.8, -8.4, 2.3e4`
-  * 문자열 `자바스크립트, HTML5`
-  * 논리값과 null
-  * JSON 문자열과 배열
-  ```js
-
-  {
-    "name" : "도레미",
-    "major" : "컴퓨터 공학",
-    "grade" : 2,
-    "course" : ["웹 기초", "자바스크립트", "인공지능"]
-  }
-
-  ```
-
-  </details>
-
-  <details><summary>📖 객체를 JSON 자료로 변환하기 </summary>
-
-  * 객체를 JSON 문자열로 변환하는 것을 `직렬화` 라고 하고, `JSON.stringify()` 함수를 사용합니다.
-  `JSON.stringify(객체)`
-
-  ```js
-
-  let student = {name : "도레미", major:"컴퓨터 공학", grade:2}
-  let json = JSON.stringify(student)
-
-  ```
-
-  </details>
-
-  <details><summary>📖 JSON 문자열을 객체로 변환하기 </summary>
-
-  * JSON 문자열을 자바스크립트 객체로 변환하는 것을 `파싱`이라고 하고, 이때 `JSON.parse()` 함수를 사용합니다.
-  `JSON.parse(JSON 문자열)`
-
-  ```js
-
-  let member = '{"name" : "백두산", "age" : 30, "hobby" : "swimming"}'
-  let member_obj = JSON.parse(member)
 
   ```
 
