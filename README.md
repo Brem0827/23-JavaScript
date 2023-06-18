@@ -235,6 +235,20 @@
 
   </details>
 
+  <details><summary>📖 for in.. 문 (배열 요소 반복) </summary>
+
+  ```js
+
+  var arr = [1, 2, 3, 4];
+
+  for (var ar in arr) {
+    alert(arr[ar]);
+  }
+
+  ```
+
+  </details>
+
   <details><summary>📖 매개변수 기본값 </summary>
 
   * 함수를 선언할 때는 소괄호 안에 매개변수를 같이 지정하고 넘겨받는 값에 따라 결과를 표시

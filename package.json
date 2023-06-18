@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "react-flow": "^1.0.3",
+    "react-flow-renderer": "^10.3.17",
+    "slate": "^0.94.1",
+    "slate-react": "^0.97.0",
+    "zustand": "^3.5.4"
+  }
+}
